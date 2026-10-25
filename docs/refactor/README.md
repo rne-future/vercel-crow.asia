@@ -1,6 +1,8 @@
 # Refactoring crow.asia → Vercel-Native (Next.js) + Supabase Postgres + R2
 
-> **Status:** Rencana disetujui. **Sumber (Laravel, read-only):** `../crow.asia` · **Repo ini:** `/home/harry/Documents/harry/vercel-crow.asia`
+> **Status:** Rencana disetujui. **Repo ini:** `/home/harry/Documents/harry/vercel-crow.asia` (repo rewrite, Next.js).
+> **Repo sumber (Laravel, READ-ONLY — jangan diubah selama rewrite):** `/home/harry/Documents/harry/crow.asia` (branch `development`).
+> Semua path Laravel di dokumen ini (`routes/web.php`, `app/Http/Controllers/*`, `app/Services/*`, `app/Filament/*`, `resources/js/*`, `database/migrations/*`, `config/*`, `bootstrap/app.php`, `books/**/*.md`, `lang/*.json`) merujuk ke **repo sumber** tersebut, bukan ke repo ini.
 > **Target:** hilangkan runtime PHP, daemon Octane, dan arsitektur stateful → stack TypeScript stateless, zero-config di Vercel, scalable.
 > **Keputusan kunci:** Next.js App Router + Drizzle ORM + Auth.js · DB Supabase Postgres + pgvector · Storage Cloudflare R2 · **Tanpa Redis** (cache/session/queue disederhanakan).
 

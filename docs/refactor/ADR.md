@@ -15,7 +15,8 @@ summary: Architecture Decision Record untuk refactoring crow.asia dari Laravel 1
 | **Tanggal** | 25 Oktober 2026 |
 | **Status** | **ACCEPTED (Acuan Resmi `docs/refactor/README.md`)** |
 | **Keputusan Pemenang** | **Next.js App Router + TypeScript + Drizzle ORM + Auth.js v5 + Supabase Postgres (`pgvector`) + Cloudflare R2, tanpa Redis** |
-| **Keputusan pendahulu** | `docs/blueprint/02-ADR.md` (ADR-001 s/d ADR-005, stack Laravel) tetap berlaku sebagai dokumentasi asal; ADR ini menggantikannya untuk target Vercel |
+| **Keputusan pendahulu** | `docs/blueprint/02-ADR.md` di **repo sumber** (ADR-001 s/d ADR-005, stack Laravel) tetap berlaku sebagai dokumentasi asal; ADR ini menggantikannya untuk target Vercel |
+| **Repo sumber (Laravel, READ-ONLY)** | `/home/harry/Documents/harry/crow.asia` (branch `development`) — semua path Laravel di ADR ini (`routes/web.php`, `app/*`, `resources/js/*`, `database/migrations/*`, `config/*`, dst.) merujuk ke sana |
 
 ---
 
