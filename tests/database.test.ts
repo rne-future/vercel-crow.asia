@@ -60,7 +60,7 @@ test("payments are atomic, concurrent callbacks are idempotent, and reader acces
     for (const result of search.filter((row) => !row.is_unlocked)) assert.equal(result.snippet, "");
     await assert.rejects(readerService.getPdfUrl("book-1", null), { status: 401 });
     await assert.rejects(readerService.getPdfUrl("book-1", { id: userId, role: "reader" }), { status: 403 });
-    await assert.rejects(readerService.toggleChecklist({ book_id: "book-1", chapter_slug: "ch-7", item_index: 0, is_completed: true }, null), { status: 403 });
+    await assert.rejects(readerService.toggleChecklist({ book_id: "book-1", chapter_slug: "ch-7", item_id: "000000000000", is_completed: true }, null), { status: 403 });
 
     const { ordersService } = await import("../lib/modules/orders/orders.service");
     const otherId = crypto.randomUUID();

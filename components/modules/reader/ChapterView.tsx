@@ -23,7 +23,7 @@ interface ChapterViewProps {
     currentChapter: {
         index: number; slug: string; title: string; isFreeSample: boolean; hasAccess: boolean; hasScripts: boolean;
         illustrationPath: string | null; illustrationCaption: string | null; displayHtml: string;
-        checklists: { itemIndex: number; labelHtml: string; isCompleted: boolean }[];
+        checklists: { itemIndex: number; itemId: string; labelHtml: string; isCompleted: boolean }[];
         remotionConfig: { compositionId: string; width: number; height: number; fps: number; durationInFrames: number; sceneProps: Record<string, unknown> & { steps?: unknown[]; teammateName?: string } };
         optionalYoutube: { isEnabled: boolean; videoId: string | null };
     };
@@ -49,7 +49,7 @@ export function ChapterView({
     const [checklists, setChecklists] = useState(currentChapter.checklists);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [checklistError, setChecklistError] = useState<string | null>(null);
-    const [pendingItems, setPendingItems] = useState<number[]>([]);
+    const [pendingItems, setPendingItems] = useState<string[]>([]);
 
     // Sync checklists when chapter changes
     useEffect(() => {
@@ -90,15 +90,15 @@ export function ChapterView({
     };
 
     // Optimistic checklist toggle
-    const handleToggleChecklist = (itemIndex: number, currentCompleted: boolean) => {
-        if (pendingItems.includes(itemIndex)) return;
-        setPendingItems((items) => [...items, itemIndex]);
+    const handleToggleChecklist = (itemId: string, currentCompleted: boolean) => {
+        if (pendingItems.includes(itemId)) return;
+        setPendingItems((items) => [...items, itemId]);
         setChecklistError(null);
         const nextCompleted = !currentCompleted;
 
         // 1. Optimistic local state update
         setChecklists((prev) =>
-            prev.map((c) => (c.itemIndex === itemIndex ? { ...c, isCompleted: nextCompleted } : c))
+            prev.map((c) => (c.itemId === itemId ? { ...c, isCompleted: nextCompleted } : c))
         );
 
         // 2. Background server sync
@@ -113,16 +113,16 @@ export function ChapterView({
             body: JSON.stringify({
                 book_id: book.id,
                 chapter_slug: currentChapter.slug,
-                item_index: itemIndex,
+                item_id: itemId,
                 is_completed: nextCompleted,
             }),
         }).then((response) => { if (!response.ok) throw new Error('Checklist save failed'); }).catch(() => {
             setChecklistError(t('reader.checklist_error'));
             // Revert on error
             setChecklists((prev) =>
-                prev.map((c) => (c.itemIndex === itemIndex ? { ...c, isCompleted: currentCompleted } : c))
+                prev.map((c) => (c.itemId === itemId ? { ...c, isCompleted: currentCompleted } : c))
             );
-        }).finally(() => setPendingItems((items) => items.filter((index) => index !== itemIndex)));
+        }).finally(() => setPendingItems((items) => items.filter((id) => id !== itemId)));
     };
 
     const handleRegisterChange = (newRegister: string) => {
@@ -275,8 +275,8 @@ export function ChapterView({
                             {currentChapter.hasAccess && checklists.length > 0 && <section className="mt-8 space-y-3" aria-label={t('reader.checklist_title')}>
                                 <h2 className="font-bold">{t('reader.checklist_title')}</h2>
                                 {checklistError && <p role="alert" className="text-sm text-red-700">{checklistError}</p>}
-                                {checklists.map((item) => <label key={item.itemIndex} className="flex items-start gap-3 py-2 text-sm">
-                                    <input type="checkbox" className="mt-1" checked={item.isCompleted} disabled={pendingItems.includes(item.itemIndex)} onChange={() => handleToggleChecklist(item.itemIndex, item.isCompleted)} />
+                                {checklists.map((item, index) => <label key={`${item.itemId}:${index}`} className="flex items-start gap-3 py-2 text-sm">
+                                    <input type="checkbox" className="mt-1" checked={item.isCompleted} disabled={pendingItems.includes(item.itemId)} onChange={() => handleToggleChecklist(item.itemId, item.isCompleted)} />
                                     <span dangerouslySetInnerHTML={{ __html: item.labelHtml }} />
                                 </label>)}
                             </section>}

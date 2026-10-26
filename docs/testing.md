@@ -10,6 +10,8 @@
 | `npm run typecheck` | TypeScript tanpa emit; dapat membuat metadata incremental. |
 | `npm test` | Unit dan integration test yang diimpor `tests/run.ts`. |
 | `npm run test:browser` | Dua suite Playwright Chromium secara berurutan. |
+| `npm run test:editor` | Rerender komponen editor asli di Chromium, tanpa server/DB; memerlukan browser Playwright terpasang. |
+| `npm run test:reader` | Checklist pada komponen reader asli di Chromium (komponen sekeliling dan fetch di-stub): label duplikat, reorder, keyboard toggle, pending, rollback, dan empty state; tanpa server/DB. |
 | `npm run db:check` | Konsistensi berkas migrasi Drizzle; bukan pembandingan schema live dengan seluruh SQL. |
 | `npm run db:smoke` | Koneksi dan daftar tabel wajib; tidak membuktikan izin vendor atau keberadaan PDF. |
 | `npm run build` | Build produksi Next.js dan pemeriksaan tipe/lint yang dijalankan build. |
@@ -31,6 +33,8 @@ DATABASE_URL="$CROW_TEST_DATABASE_URL" npm run db:seed-translations
 
 TEST_DATABASE_URL="$CROW_TEST_DATABASE_URL" npm test
 ```
+
+Test `tests/checklist-migration.test.ts` dapat dijalankan sendiri pada database `_test` tanpa seed/vector: `TEST_DATABASE_URL="$CROW_TEST_DATABASE_URL" node --import tsx tests/checklist-migration.test.ts`. Test memakai tabel TEMP dengan bentuk schema lama, mengeksekusi SQL migration asli dalam transaksi, lalu memeriksa pemetaan lintas bahasa, UTF-8, deduplikasi, dan posisi yatim. Test ini dilewati bila URL tidak tersedia; pemeriksaan statis/`db:check` bukan bukti SQL berjalan benar.
 
 Integration suite membutuhkan buku/bab fixture dari seed, termasuk `book-1/ch-7`. Suite memeriksa transaksi pembayaran, callback paralel/replay, snapshot, revoke, paid content, rate limit, locale/default, serta invoice failure menggunakan fetch stub. Suite juga mengubah status terjemahan dan metadata locale fixture; jangan memakai data editorial nyata sebagai fixture.
 

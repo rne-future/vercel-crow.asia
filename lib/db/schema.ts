@@ -339,14 +339,14 @@ export const checklistProgress = pgTable(
       .notNull()
       .references(() => books.id, { onDelete: "cascade" }),
     chapterSlug: varchar("chapter_slug", { length: 32 }).notNull(),
-    itemIndex: smallint("item_index").notNull(),
+    itemId: varchar("item_id", { length: 16 }).notNull(),
     isCompleted: boolean("is_completed").notNull().default(false),
     updatedAt: timestamp("updated_at", tz)
       .notNull()
       .default(sql`NOW()`),
   },
   (t) => [
-    uniqueIndex("uq_user_checklist").on(t.userId, t.bookId, t.chapterSlug, t.itemIndex),
+    uniqueIndex("uq_user_checklist").on(t.userId, t.bookId, t.chapterSlug, t.itemId),
     index("idx_checklist_book").on(t.bookId),
   ],
 );

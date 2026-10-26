@@ -8,7 +8,7 @@ import { i18nService } from "@/lib/modules/i18n/i18n.service";
 import { bookTitle, bookSubtitle } from "@/lib/modules/i18n/format";
 import { chapterSchema, resourceIdSchema } from "@/lib/modules/books/books.schema";
 import { toggleSchema, searchSchema, chapterTranslationSchema } from "./reader.schema";
-import { compileChapter, localizeCompiledHtml, localizeSceneLabels } from "./content/compiler";
+import { compileChapter, localizeCompiledHtml, localizeSceneLabels, stableItemId } from "./content/compiler";
 import { ServiceError } from "@/lib/shared/errors";
 import { signedPdfUrl, storageObjectPath } from "@/lib/integrations/storage";
 
@@ -20,7 +20,7 @@ export const readerService = {
     if (!chapter) throw new ServiceError(404, "Chapter not found");
     if (!chapter.isFreeSample && !await entitlementsService.canAccessBook(user, parsed.book_id)) throw new ServiceError(403, "Access denied");
     const translations = await readerRepository.getPublishedTranslations(chapter.id);
-    if (!translations.some((row) => Array.isArray(row.extractedChecklists) && row.extractedChecklists.some((item, index) => (item.itemIndex ?? index) === parsed.item_index))) throw new ServiceError(404, "Checklist item not found");
+    if (!translations.some((row) => Array.isArray(row.extractedChecklists) && row.extractedChecklists.some((item: { itemId?: string; labelHtml?: string }) => (item.itemId ?? stableItemId(item.labelHtml ?? "")) === parsed.item_id))) throw new ServiceError(404, "Checklist item not found");
     if (user) await readerRepository.saveProgress(user.id, parsed);
     return { success: true, is_completed: parsed.is_completed, authenticated: !!user };
   },
@@ -78,7 +78,7 @@ export const readerService = {
       const chapter = await readerRepository.getChapterById(row.chapterId, tx);
       if (!chapter) throw new ServiceError(404, "Chapter not found");
       const compiled = compileChapter(parsed.rawMarkdown, parsed.title, row.locale, row.register, chapter.bookId, chapter.chapterIndex, dictionary);
-      await readerRepository.saveChapterTranslation(row.id, { ...compiled, title: parsed.title, rawMarkdown: parsed.rawMarkdown, translationStatus: parsed.status, compiledAt: new Date(), updatedAt: new Date() }, tx);
+      await readerRepository.saveChapterTranslation(row.id, { ...compiled, title: parsed.title, rawMarkdown: parsed.rawMarkdown, translationStatus: parsed.status, compiledAt: new Date(), updatedAt: new Date(Math.max(Date.now(), row.updatedAt.getTime() + 1)) }, tx);
     });
   },
 };
@@ -125,19 +125,21 @@ export async function resolveReader(
     : { bookId, chapterIndex: chapter.chapterIndex, chapterTitle: translation.title, locale, register,
       motifIcon: chapter.motifIcon, accentHex: book.accentHex, steps: [] };
 
-  const progressMap: Record<number, boolean> = {};
+  const progressMap: Record<string, boolean> = {};
   if (user) {
     const rows = await readerRepository.getProgress(user.id, bookId, slug);
-    for (const r of rows) progressMap[r.itemIndex] = r.isCompleted;
+    for (const r of rows) progressMap[r.itemId] = r.isCompleted;
   }
   const extracted = (translation.extractedChecklists ?? []) as Array<{
     itemIndex?: number;
+    itemId?: string;
     labelHtml?: string;
   }>;
   const checklists = (hasAccess ? extracted : []).map((item, i) => ({
     itemIndex: item.itemIndex ?? i,
+    itemId: item.itemId ?? stableItemId(item.labelHtml ?? ""),
     labelHtml: sanitizeHtml(item.labelHtml ?? ""),
-    isCompleted: progressMap[item.itemIndex ?? i] ?? false,
+    isCompleted: progressMap[item.itemId ?? stableItemId(item.labelHtml ?? "")] ?? false,
   }));
 
   const allChapters = await readerRepository.listChapters(bookId);

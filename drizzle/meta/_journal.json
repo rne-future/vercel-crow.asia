@@ -43,6 +43,13 @@
       "when": 1792993265658,
       "tag": "0005_query_indexes",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793013789637,
+      "tag": "0006_checklist_item_id",
+      "breakpoints": true
     }
   ]
 }

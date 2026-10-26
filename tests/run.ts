@@ -5,4 +5,6 @@ import "./security.test";
 import "./orders.test";
 import "./seed-users.test";
 import "./editor-conflict.test";
+import "./checklist-identity.test";
+import "./checklist-migration.test";
 import "./database.test";

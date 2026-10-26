@@ -39,9 +39,9 @@ export default function ChapterTranslationsEditor({
 
       {/* Editor */}
       {selected ? (
-        <form key={selected.id} action={saveChapterTranslation} className="space-y-4 text-xs">
+        <form key={`${selected.id}:${selected.updatedAt.toISOString()}`} action={saveChapterTranslation} className="space-y-4 text-xs">
           <input type="hidden" name="id" value={selected.id} />
-          <input type="hidden" name="updated_at" value={selected.updatedAt instanceof Date ? selected.updatedAt.toISOString() : String(selected.updatedAt)} />
+          <input type="hidden" name="updated_at" value={selected.updatedAt.toISOString()} />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="sm:col-span-2 space-y-1">

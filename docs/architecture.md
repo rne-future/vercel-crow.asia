@@ -137,7 +137,7 @@ erDiagram
 - Unique `(user_id, book_id)` membatasi satu record entitlement per pasangan user/buku. `is_active` menentukan aksesnya.
 - `included_book_ids` pada tier dan order berupa JSON, bukan relasi junction/FK per elemen. Grant ke buku yang tidak valid dapat menggagalkan transaksi fulfillment.
 - `locales` dan `supported_locales` disinkronkan oleh repository i18n berdasarkan kode. Tidak ada foreign key antara kedua tabel tersebut.
-- `checklist_progress` memiliki FK user/buku dan unique user/book/slug/item. Keberadaan bab dan item diperiksa service, bukan FK ke chapter.
+- `checklist_progress` memiliki FK user/buku dan unique user/book/slug/item_id. `item_id` adalah 12 digit pertama SHA-256 atas label HTML tersanitasi (UTF-8), disimpan sebagai varchar(16); posisi bukan identitas. Label identik dalam bab berbagi completion, sedangkan label terjemahan berbeda memiliki ID berbeda. Keberadaan bab dan item diperiksa service, bukan FK ke chapter.
 - `chapter_translations` memiliki search vector dan embedding `vector(768)`. Query pencarian saat ini memakai full-text dan `ILIKE` judul; belum memakai embedding.
 
 Definisi lengkap tabel, constraint, dan indeks ada di [schema.ts](../lib/db/schema.ts). Berkas [migrasi](../drizzle) adalah riwayat DDL yang dijalankan ke database.

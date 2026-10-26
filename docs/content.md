@@ -47,7 +47,7 @@ Parser memisahkan bab melalui heading `##`, melewati daftar isi, memberi slug `c
 
 Compiler mendukung Markdown, tabel, footnote, task list, callout, drawer skrip, dan diagram Mermaid. Sanitasi dilakukan setelah render/transform HTML. Safe preview mengambil tiga elemen paragraf/blockquote pertama jika tersedia; jalur fallback memakai teks hingga 300 karakter.
 
-Task list diekstrak sebagai checklist berindeks. Placeholder `[Nama]`, `[Nama Staf]`, `[Nama Anggota Tim]`, `[Teammate Name]`, dan `{{teammateName}}` mendukung personalisasi nama. Client memperbarui teks token; isi naskah tidak disimpan ulang saat nama diganti.
+Task list diekstrak sebagai checklist dengan indeks tampilan dan ID berbasis hash label. Progress memakai ID, sehingga insert/reorder tidak memindahkan completion. Perubahan HTML label (termasuk format/link) menghasilkan ID baru; label identik dalam satu bab berbagi completion. Placeholder `[Nama]`, `[Nama Staf]`, `[Nama Anggota Tim]`, `[Teammate Name]`, dan `{{teammateName}}` mendukung personalisasi nama. Client memperbarui teks token; isi naskah tidak disimpan ulang saat nama diganti.
 
 Rujukan: [parser](../lib/modules/reader/content/parser.ts), [compiler](../lib/modules/reader/content/compiler.ts), dan [renderer artikel](../components/modules/reader/PreCompiledArticle.tsx).
 
@@ -72,7 +72,13 @@ Seed naskah dapat mengganti edit admin dan mempublikasikan kembali naskah yang a
 | `/admin/chapters` | Indeks, slug, sample, ilustrasi, konfigurasi animasi, dan YouTube opsional. |
 | `/admin/translations` | Dictionary UI dan editor manuskrip bab. |
 
-Editor manuskrip menerima DRAFT, REVIEW, atau PUBLISHED. Status dapat dipilih langsung; belum ada workflow approval wajib antarroll. Penyimpanan mengunci row terjemahan, mengompilasi ulang konten, dan memperbarui search vector dalam transaksi. Reader/pencarian hanya mengambil terjemahan PUBLISHED.
+Editor manuskrip menerima DRAFT, REVIEW, atau PUBLISHED. Status dapat dipilih langsung; belum ada workflow approval wajib antarroll. Penyimpanan mengunci row terjemahan, mengompilasi ulang konten, dan memperbarui search vector dalam transaksi. Reader/pencarian hanya mengambil terjemahan PUBLISHED. Form mengirim baseline `updated_at`; service memeriksanya setelah row dikunci dan menolak save usang dengan `ServiceError(409)`. Token selalu dimajukan minimal 1 ms. Form di-key berdasarkan ID dan revisi agar baseline tidak terpisah dari naskah; refresh yang membawa revisi baru mereset input (termasuk edit yang belum disimpan), sedangkan refresh revisi yang sama mempertahankan input. Muat ulang naskah sebelum menyimpan ulang; server action bukan endpoint JSON dan kegagalan dapat ditangani error boundary Next.js.
+
+## Migrasi identitas checklist
+
+Migration `0006_checklist_item_id.sql` harus dijalankan melalui migrator Drizzle (satu transaksi) saat penulisan reader/editor dihentikan. Ambil backup terlebih dahulu, jalankan migration, deploy server/client baru bersama, lalu minta tab reader lama dimuat ulang. API baru menolak `item_index`; jangan menjalankan app lama setelah migration.
+
+Migration mengisi ID semua JSON checklist tersimpan, lalu memetakan progress lama ke setiap label pada posisi yang sama di terjemahan PUBLISHED saat migrasi. Jika beberapa posisi mempunyai label identik, timestamp progress terbaru dipertahankan (tie memakai ID row). Posisi tanpa padanan dibuang. Progress lama tidak mencatat bahasa atau teks historis, sehingga tidak mungkin menentukan tugas asli jika sudah pernah diurutkan ulang; kesamaan jumlah item bukan bukti kesamaan makna. Setelah cutover, completion untuk label bahasa/ragam yang berbeda bersifat terpisah. Uji migration di database `_test` sebelum production; tidak perlu menjalankan seed ulang.
 
 ## Ilustrasi, animasi, dan font
 

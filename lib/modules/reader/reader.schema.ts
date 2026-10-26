@@ -4,7 +4,7 @@ import { localeCodeSchema } from "@/lib/modules/i18n/i18n.schema";
 
 export const toggleSchema = z.object({
   book_id: resourceIdSchema, chapter_slug: resourceIdSchema,
-  item_index: z.number().int().min(0).max(32767), is_completed: z.boolean(),
+  item_id: z.string().regex(/^[0-9a-f]{8,16}$/), is_completed: z.boolean(),
 }).strict();
 export const searchSchema = z.object({
   q: z.string().trim().max(200).default(""), locale: localeCodeSchema.default("id"),

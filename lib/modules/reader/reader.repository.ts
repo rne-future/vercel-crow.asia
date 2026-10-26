@@ -28,10 +28,10 @@ export const readerRepository = {
     return chapterIds.length && locales.length ? db.select({ chapterId: chapterTranslations.chapterId, title: chapterTranslations.title, locale: chapterTranslations.locale, register: chapterTranslations.register })
       .from(chapterTranslations).where(and(inArray(chapterTranslations.chapterId, chapterIds), inArray(chapterTranslations.locale, locales), eq(chapterTranslations.translationStatus, "PUBLISHED"))) : [];
   },
-  async saveProgress(userId: string, input: { book_id: string; chapter_slug: string; item_index: number; is_completed: boolean }) {
+  async saveProgress(userId: string, input: { book_id: string; chapter_slug: string; item_id: string; is_completed: boolean }) {
     await db.insert(checklistProgress).values({ id: uuidv7(), userId, bookId: input.book_id, chapterSlug: input.chapter_slug,
-      itemIndex: input.item_index, isCompleted: input.is_completed, updatedAt: new Date() })
-      .onConflictDoUpdate({ target: [checklistProgress.userId, checklistProgress.bookId, checklistProgress.chapterSlug, checklistProgress.itemIndex], set: { isCompleted: input.is_completed, updatedAt: new Date() } });
+      itemId: input.item_id, isCompleted: input.is_completed, updatedAt: new Date() })
+      .onConflictDoUpdate({ target: [checklistProgress.userId, checklistProgress.bookId, checklistProgress.chapterSlug, checklistProgress.itemId], set: { isCompleted: input.is_completed, updatedAt: new Date() } });
   },
   async saveChapter(bookId: string, slug: string, values: Omit<typeof chapters.$inferInsert, "bookId" | "slug" | "id">) {
     await db.insert(chapters).values({ bookId, slug, ...values }).onConflictDoUpdate({ target: [chapters.bookId, chapters.slug], set: { ...values, updatedAt: new Date() } });

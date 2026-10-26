@@ -1,4 +1,5 @@
 import MarkdownIt, { type MarkdownIt as MarkdownItInstance } from "markdown-it";
+import { createHash } from "node:crypto";
 import sanitizeHtml from "sanitize-html";
 import { getDict, translate } from "@/lib/i18n";
 
@@ -8,6 +9,7 @@ const taskLists = require("markdown-it-task-lists") as MdPlugin;
 
 export interface ChecklistItem {
   itemIndex: number;
+  itemId: string;
   labelHtml: string;
   isCompleted: boolean;
 }
@@ -247,12 +249,16 @@ function generateSafePreview(html: string): string {
   return text.length > 300 ? `${text.slice(0, 300)}…` : text;
 }
 
+export function stableItemId(labelHtml: string): string {
+  return createHash("sha256").update(labelHtml).digest("hex").slice(0, 12);
+}
+
 function extractChecklists(markdown: string): ChecklistItem[] {
   const matches = [...markdown.matchAll(/^[-*]\s+\[([ xX])\]\s+(.+)$/gm)];
   return matches.map((m, i) => {
     const rendered = mdInline.renderInline(m[2].trim());
     const cleanLabel = sanitize(rendered);
-    return { itemIndex: i, labelHtml: cleanLabel, isCompleted: m[1].toLowerCase() === "x" };
+    return { itemIndex: i, itemId: stableItemId(cleanLabel), labelHtml: cleanLabel, isCompleted: m[1].toLowerCase() === "x" };
   });
 }
 

@@ -138,12 +138,12 @@ Rujukan: [route](../app/api/search/route.ts), [schema](../lib/modules/reader/rea
 {
   "book_id": "book-1",
   "chapter_slug": "ch-7",
-  "item_index": 0,
+  "item_id": "f00ba4123456",
   "is_completed": true
 }
 ```
 
-ID buku/slug mengikuti pola ID domain maksimal 32 karakter. `item_index` adalah integer 0–32767 dan `is_completed` boolean; field tambahan ditolak. Service memeriksa buku aktif, bab, hak akses, dan keberadaan item pada setidaknya satu terjemahan PUBLISHED bab tersebut.
+ID buku/slug mengikuti pola ID domain maksimal 32 karakter. `item_id` adalah hash konten dari props reader (12 karakter heksadesimal), bukan nomor urut; `is_completed` boolean dan field tambahan ditolak. Service memeriksa buku aktif, bab, hak akses, dan keberadaan ID pada setidaknya satu terjemahan PUBLISHED bab tersebut. Penyisipan/pengurutan ulang tidak memindahkan progress; perubahan label menghasilkan item baru. Label bahasa/ragam yang berbeda mempunyai progress terpisah setelah migrasi.
 
 ```json
 {"success":true,"is_completed":true,"authenticated":true}
