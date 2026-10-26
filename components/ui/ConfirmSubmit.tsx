@@ -1,5 +1,23 @@
 "use client";
 
-export function ConfirmSubmit({ message, children }: { message: string; children: React.ReactNode }) {
-  return <button type="submit" onClick={(event) => { if (!window.confirm(message)) event.preventDefault(); }}>{children}</button>;
+export function ConfirmSubmit({
+  message,
+  children,
+  className,
+}: {
+  message: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <button
+      type="submit"
+      className={className}
+      onClick={(event) => {
+        if (!window.confirm(message)) event.preventDefault();
+      }}
+    >
+      {children}
+    </button>
+  );
 }

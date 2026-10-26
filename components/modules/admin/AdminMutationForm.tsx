@@ -18,7 +18,10 @@ export function AdminMutationForm({ action, submitLabel, children, className }: 
   }}>
     <fieldset disabled={pending} className="grid min-w-0 gap-3">
       {children}
-      <button type="submit" className="w-fit min-h-11 rounded border border-stone-500 px-4 py-2 font-semibold disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+      <button
+        type="submit"
+        className="w-fit px-4 py-2 rounded-lg font-bold text-xs bg-[#111113] text-[#FAF8F5] hover:bg-stone-800 disabled:opacity-60 transition-colors shadow-2xs cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D4ED8]"
+      >
         {pending ? "Menyimpan…" : submitLabel}
       </button>
     </fieldset>
