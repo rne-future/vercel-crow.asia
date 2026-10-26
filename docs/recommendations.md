@@ -29,9 +29,9 @@ Kriteria penerimaan: user baru mendapat role reader, user lama tetap memiliki or
 
 ## Lifecycle akun dan admin
 
-**Kondisi saat ini:** guest membuat akun melalui checkout. Tabel reset token ada pada schema, tetapi route/form reset password dan registrasi umum belum tersedia. [Seed user](../scripts/seed-users.ts) membuat/memperbarui akun development tetap dan memiliki password fallback.
+**Kondisi saat ini:** guest membuat akun melalui checkout. Tabel reset token ada pada schema, tetapi route/form reset password dan registrasi umum belum tersedia. [Seed user](../scripts/seed-users.ts) membuat/memperbarui akun development tetap. Akun baru memerlukan `SEED_DEV_PASSWORD` yang tidak kosong, tanpa fallback; password akun lama dipertahankan.
 
-Tambahkan command provisioning admin production yang tidak menciptakan akun fixture atau menimpa user tanpa keputusan operator. Setelah itu, rancang reset password/invitation dengan token terbatas waktu dan delivery yang sesuai. Tetapkan password seed development secara eksplisit dan pertimbangkan agar script menolak nilai kosong.
+Tambahkan command provisioning admin production yang tidak menciptakan akun fixture atau menimpa user tanpa keputusan operator. Setelah itu, rancang reset password/invitation dengan token terbatas waktu dan delivery yang sesuai. Jika akun pernah dibuat dengan password fallback versi lama, lakukan rotasi secara terpisah; seed ulang tidak merotasi credential.
 
 Kriteria penerimaan: bootstrap admin tidak bergantung pada seed fixture, reset tidak membocorkan keberadaan akun, token hanya dapat dipakai sesuai kebijakan, dan perubahan credential tidak mengubah kepemilikan pembelian.
 

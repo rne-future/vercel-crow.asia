@@ -55,7 +55,7 @@ Untuk membuat akun admin dan pembaca development, gunakan database lokal tersend
 SEED_DEV_PASSWORD='<password-development>' npm run db:seed-users
 ```
 
-Script tersebut memperbarui akun tetap yang didefinisikan di [seed-users.ts](scripts/seed-users.ts), termasuk akun admin `admin@crow.asia`. Jangan gunakan script ini untuk bootstrap production.
+Script tersebut membuat atau memperbarui nama/role akun tetap yang didefinisikan di [seed-users.ts](scripts/seed-users.ts), termasuk akun admin `admin@crow.asia`. Akun baru wajib memakai `SEED_DEV_PASSWORD` yang tidak kosong; tidak ada password fallback. Password akun yang sudah ada tidak diubah saat seed diulang, meskipun nilai variabel berbeda. Jangan gunakan script ini untuk bootstrap production. Jika pernah menggunakan password fallback versi lama, ganti password akun terdampak secara terpisah.
 
 ### 3. Jalankan aplikasi
 

@@ -48,6 +48,8 @@ npm run db:seed-users
 npx playwright install chromium
 ```
 
+`SEED_DEV_PASSWORD` wajib tidak kosong untuk akun baru. Seed ulang tidak mengganti password akun yang sudah ada; gunakan `E2E_PASSWORD` yang sesuai dengan password akun fixture saat ini, bukan menganggap nilai seed baru meresetnya.
+
 Jalankan server pada terminal pertama:
 
 ```bash

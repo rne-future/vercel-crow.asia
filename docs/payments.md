@@ -83,7 +83,7 @@ Status dibaca dari `data.status` jika ada, selain itu dari `event`, lalu diubah 
 | Expired | `EXPIRED`, `FAILED`, `CANCELLED` |
 | Lainnya | Diterima tanpa perubahan status order. |
 
-`markOrderPaid()` menggunakan transaksi dan `FOR UPDATE`. Perubahan status dan grant di-commit bersama. Callback duplikat tidak menggandakan entitlement; grant yang hilang dapat dibuat kembali, tetapi entitlement yang telah dicabut tidak diaktifkan ulang oleh replay. Pembayaran order baru dapat mengaktifkan kembali hak buku.
+`markOrderPaid()` menggunakan transaksi dan `FOR UPDATE`. Callback tanpa transaction ID mempertahankan ID yang sudah tersimpan pada row setelah dikunci, bukan mengambil fallback dari snapshot sebelum transaksi; ID berbeda tetap ditolak. Perubahan status dan grant di-commit bersama. Callback duplikat tidak menggandakan entitlement; grant yang hilang dapat dibuat kembali, tetapi entitlement yang telah dicabut tidak diaktifkan ulang oleh replay. Pembayaran order baru dapat mengaktifkan kembali hak buku.
 
 ## Status order
 

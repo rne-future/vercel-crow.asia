@@ -45,7 +45,7 @@ export async function markOrderPaid(orderId: string, details: { mayarTransaction
     const idempotent = order.paymentStatus === "PAID";
     const tier = await booksRepository.getTier(order.pricingTierId, tx);
     if (!tier) throw new Error("Order tier not found");
-    const paid = await ordersRepository.update(orderId, { ...details, paymentStatus: "PAID", paidAt: order.paidAt ?? new Date(), includedBookIds: order.includedBookIds ?? tier.includedBookIds }, tx);
+    const paid = await ordersRepository.update(orderId, { ...details, mayarTransactionId: details.mayarTransactionId ?? order.mayarTransactionId, paymentStatus: "PAID", paidAt: order.paidAt ?? new Date(), includedBookIds: order.includedBookIds ?? tier.includedBookIds }, tx);
     const grantedBooks = await syncEntitlements(paid, tx, !idempotent);
     return { order: paid, grantedBooks, idempotent };
   });
@@ -55,22 +55,23 @@ export const ordersService = {
   markOrderPaid,
   async checkout(input: unknown, user: SessionUser | null, appUrl: string) {
     const parsed = checkoutSchema.parse(input);
-    if (!await authService.allowCheckoutAttempt(parsed.customer_email)) throw new ServiceError(429, "Terlalu banyak percobaan checkout. Coba lagi dalam 15 menit.");
+    const profile = await authService.getProfile(user?.id);
+    const customerEmail = profile?.email ?? parsed.customer_email;
+    if (!await authService.allowCheckoutAttempt(customerEmail)) throw new ServiceError(429, "Terlalu banyak percobaan checkout. Coba lagi dalam 15 menit.");
     const tier = await booksRepository.getTier(parsed.pricing_tier_id);
     if (!tier?.isActive) throw new ServiceError(404, "Paket tidak ditemukan.");
-    const profile = await authService.getProfile(user?.id);
     const order = await ordersRepository.transaction(async (tx) => {
       let buyerId = profile?.id;
       if (!buyerId) {
         if (!parsed.password) throw new ServiceError(400, "Buat password untuk mengakses pembelian Anda, atau login terlebih dahulu.");
-        if (await authRepository.findByEmail(parsed.customer_email, tx)) throw new ServiceError(409, "Silakan login untuk melanjutkan checkout dengan email ini.");
-        const created = await authRepository.createUser({ id: uuidv7(), email: parsed.customer_email,
-          name: parsed.customer_name || parsed.customer_email.split("@")[0], password: await bcrypt.hash(parsed.password, 12) }, tx);
+        if (await authRepository.findByEmail(customerEmail, tx)) throw new ServiceError(409, "Silakan login untuk melanjutkan checkout dengan email ini.");
+        const created = await authRepository.createUser({ id: uuidv7(), email: customerEmail,
+          name: parsed.customer_name || customerEmail.split("@")[0], password: await bcrypt.hash(parsed.password, 12) }, tx);
         if (!created) throw new ServiceError(409, "Silakan login untuk melanjutkan checkout.");
         buyerId = created.id;
       }
       return ordersRepository.create({ id: uuidv7(), orderNumber: orderNumber(), userId: buyerId,
-        customerEmail: profile?.email ?? parsed.customer_email, pricingTierId: tier.id, amountIdr: tier.priceIdr,
+        customerEmail, pricingTierId: tier.id, amountIdr: tier.priceIdr,
         includedBookIds: tier.includedBookIds, paymentStatus: "PENDING" }, tx);
     });
     try {
@@ -103,7 +104,7 @@ export const ordersService = {
       || (data.transactionId && order.mayarTransactionId && data.transactionId !== order.mayarTransactionId)) throw new ServiceError(409, "Conflicting payment identifiers");
     const status = String(data.status ?? payload.event ?? "").toUpperCase();
     if (["PAID", "SETTLED", "SUCCESS", "PAYMENT.RECEIVED", "PAYMENT_SUCCESS"].includes(status)) {
-      const result = await markOrderPaid(order.id, { mayarTransactionId: data.transactionId ?? order.mayarTransactionId, rawWebhookPayload: payload });
+      const result = await markOrderPaid(order.id, { mayarTransactionId: data.transactionId, rawWebhookPayload: payload });
       return { status: "success", order_number: order.orderNumber, granted_books: result.grantedBooks, idempotent: result.idempotent };
     }
     if (["EXPIRED", "FAILED", "CANCELLED"].includes(status)) {

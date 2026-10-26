@@ -80,7 +80,7 @@ Signing opsional bukan asumsi tentang header resmi vendor. Sender yang mengaktif
 | --- | --- |
 | `VERCEL_TOKEN` | Proses Vercel CLI/API yang memuat token tersebut; tidak diperlukan runtime aplikasi. |
 | `MANUSCRIPT_SOURCE_DIR` | Seed dan test kompilasi naskah; default `../crow.asia`. |
-| `SEED_DEV_PASSWORD` | Password seed akun development; tetapkan secara eksplisit meskipun script memiliki fallback. |
+| `SEED_DEV_PASSWORD` | Wajib tidak kosong untuk membuat akun development baru; tanpa fallback. Seed ulang mempertahankan password akun yang sudah ada. |
 | `TEST_DATABASE_URL` | Test integrasi; lihat [isolasi database](testing.md#test-integrasi-database). |
 | `NEXT_DIST_DIR` | Mengganti output `.next` untuk memisahkan server/build lokal. |
 | `E2E_BASE_URL`, `E2E_PASSWORD`, `E2E_WEBHOOK_TOKEN` | Runner browser; lihat [pengujian](testing.md#test-browser). |
