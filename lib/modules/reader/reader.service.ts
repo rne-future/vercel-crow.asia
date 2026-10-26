@@ -74,6 +74,7 @@ export const readerService = {
     await readerRepository.transaction(async (tx) => {
       const row = await readerRepository.getChapterTranslation(parsed.id, tx, true);
       if (!row) throw new ServiceError(404, "Translation not found");
+      if (row.updatedAt.getTime() !== parsed.updatedAt.getTime()) throw new ServiceError(409, "Naskah ini sudah diperbarui oleh editor lain. Muat ulang halaman untuk melihat perubahan terbaru.");
       const chapter = await readerRepository.getChapterById(row.chapterId, tx);
       if (!chapter) throw new ServiceError(404, "Chapter not found");
       const compiled = compileChapter(parsed.rawMarkdown, parsed.title, row.locale, row.register, chapter.bookId, chapter.chapterIndex, dictionary);

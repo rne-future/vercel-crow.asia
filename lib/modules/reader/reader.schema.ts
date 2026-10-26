@@ -13,4 +13,5 @@ export const searchSchema = z.object({
 export const chapterTranslationSchema = z.object({
   id: z.coerce.number().int().positive(), title: z.string().trim().min(1).max(255),
   rawMarkdown: z.string().min(1).max(500000), status: z.enum(["DRAFT", "REVIEW", "PUBLISHED"]),
+  updatedAt: z.coerce.date(),
 }).strict();
