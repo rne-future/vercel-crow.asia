@@ -1,0 +1,351 @@
+{
+  "nav": {
+    "brand": "crow.asia",
+    "leadership_diagnosis": "Leadership Diagnosis",
+    "playbooks_catalog": "Playbooks Catalog",
+    "pricing": "Pricing Tiers",
+    "search_placeholder": "Search topics & scripts...",
+    "change_theme": "Change paper theme",
+    "login": "Sign In",
+    "dashboard": "Dashboard",
+    "logout": "Sign Out",
+    "free_sample": "Free Sample",
+    "chapter": "Chapter :num",
+    "read_free_sample": "Read Chapters 0 & 1",
+    "chapters_list": "PLAYBOOK CHAPTER LIST",
+    "back_to_home": "Back to Home",
+    "book_titles": {
+      "book-1": "VOL. 01: Mastering Team Leadership",
+      "book-2": "VOL. 02: Anti-Burnout Leadership",
+      "book-3": "VOL. 03: Orchestrating Leaders"
+    },
+    "select_language": "Select Language, Current language: :lang",
+    "language_region": "Language / Region"
+  },
+  "landing": {
+    "meta_title": "crow.asia — Pan-Asian Interactive Leadership Field Playbook Platform",
+    "badge": "PRACTICAL GUIDE TO LEADING PEOPLE • READ FREE INITIAL CHAPTERS",
+    "hero": {
+      "badge": "PRACTICAL GUIDE TO LEADING PEOPLE • READ FREE INITIAL CHAPTERS",
+      "title_prefix": "Tactical Guide to",
+      "title_mark": "Leading Teams",
+      "title_middle": "& Sustaining",
+      "title_scribble": "Resilience",
+      "title_suffix": "Without Fluffy Theories.",
+      "title": "Tactical Guide to Leading Teams & Sustaining Resilience Without Fluffy Theories.",
+      "desc": "Designed for first-time team leads to division heads. Packed with proven frameworks (CCL, Harvard, Gallup), dozens of ready-to-copy 1-on-1 scripts, interactive workflow diagrams, and actionable 30-day playbooks.",
+      "cta_free": "Read Free: Introduction & Chapter 1",
+      "cta_find_book": "Find the Right Book for You ↓",
+      "cta_read_free": "Read Free: Introduction & Chapter 1",
+      "cta_view_bundle": "View Bundle Packages",
+      "preview_animation": "Animation Preview:",
+      "showcase_loading": "Loading 16:9 Showcase...",
+      "carousel": {
+        "slides": [
+          {
+            "book_id": "book-1",
+            "label": "BOOK 01 • FOR FIRST-TIME TEAM LEADS",
+            "title": "Mastering Team Leadership: Building Autonomous, Reliable Teams",
+            "short_desc": "How to set crystal-clear directives, correct mistakes without defensiveness, and coach staff to think independently.",
+            "action_link": "Read Free Chapter 1 →"
+          },
+          {
+            "book_id": "book-2",
+            "label": "BOOK 02 • FOR LEADS WHO FEEL OVERWHELMED",
+            "title": "Endurance in Team Leadership: Overcoming Burnout & Building Systems",
+            "short_desc": "How to stop firefighting daily crises, groom your second-in-command, and leave work with peaceful closure.",
+            "action_link": "Read Free Chapter 1 →"
+          },
+          {
+            "book_id": "book-3",
+            "label": "BOOK 03 • FOR MULTI-TEAM & BRANCH LEADERS",
+            "title": "Leading Other Leaders: From Directing Teams to Moving Divisions",
+            "short_desc": "How to coach subordinate team leads, dissolve inter-team ego silos, and translate company-wide strategy.",
+            "action_link": "Read Free Chapter 1 →"
+          }
+        ],
+        "go_to_slide": "Go to slide :num",
+        "prev_slide": "Previous slide",
+        "next_slide": "Next slide"
+      }
+    },
+    "catalog": {
+      "badge": "LEADERSHIP TRILOGY CURRICULUM",
+      "title": "3 Playbooks Tailored to Your Leadership Stage",
+      "desc": "No academic textbooks with lofty theories. Every book delivers practical steps, real case studies, and exact dialogue scripts ready to use in your workplace or business immediately.",
+      "status_free_sample": "🔓 FREE SAMPLE CHAPTERS",
+      "cinematic_motion": "✨ Cinematic Motion",
+      "edition_label": "ID + EN",
+      "chapters_count_label": "13 Practical Chapters + Summaries",
+      "access_info": "Free preview: Introduction & Chapter 1 (Purchase to unlock Chapters 2–13 & Reference Summaries)",
+      "suitable_for": "Target Roles:",
+      "key_frameworks": "Key Frameworks:",
+      "single_access": "Single Volume:",
+      "chapters_count": ":count Chapters + PDF",
+      "start_reading": "Start Reading",
+      "read_free_sample": "Read Free Chapter 1",
+      "read_free_btn": "Start Reading",
+      "buy_now": "Buy Now →",
+      "curriculum_tag_book-1": "FIRST-TIME LEAD",
+      "curriculum_tag_book-2": "LEADERSHIP RESILIENCE",
+      "curriculum_tag_book-3": "DIVISION MANAGER",
+      "cover_titles": {
+        "book-1": { "top": "MASTERING", "bottom": "TEAM LEADERSHIP" },
+        "book-2": { "top": "ENDURANCE IN", "bottom": "TEAM LEADERSHIP" },
+        "book-3": { "top": "LEADING", "bottom": "OTHER LEADERS" }
+      },
+      "target_roles": {
+        "book-1": "First-time team leads, shop heads, online business owners, project leads, or senior staff stepping into leadership.",
+        "book-2": "Business owners, operations managers, supervisors, and leaders tired of acting as the daily firefighter.",
+        "book-3": "Multi-branch business owners, heads of operations, division managers, or anyone leading multiple team leads."
+      },
+      "cta_paragraphs": {
+        "book-1": "Helps you navigate the awkward transition into leading people. You will master aligning on clear targets from day one, prompting staff to solve problems themselves, and delivering 1-on-1 corrective feedback without hurting morale.",
+        "book-2": "Engineered to salvage your hours and energy without sacrificing performance. You will cut redundant routines, refuse rescuing tasks from stuck staff, groom a dependable second-in-command, and unplug after hours.",
+        "book-3": "Empowers you to shift from micro-managing technical details to leading through subordinate team leads. You will coach leads to resolve staff issues, protect their authority, dissolve silos, and align company goals."
+      }
+    },
+    "quiz": {
+      "header_badge": "30-SECOND BOOK SELECTOR",
+      "title": "Unsure Where to Start Reading?",
+      "desc": "Answer this quick diagnostic about your most urgent leadership friction.",
+      "card_badge": "Leadership Diagnosis",
+      "step_indicator": "Step :current / :total",
+      "step_1_q": "1. What situation drains your mind the most this week?",
+      "step_1_o1": "I hesitate to correct staff mistakes, struggle to give crystal-clear directives, and end up redoing their tasks myself.",
+      "step_1_o2": "My team functions, but all daily crises still pile onto my shoulders. Calendar is full of ad-hoc fires and I cannot rest.",
+      "step_1_o3": "I manage several team leads or branches. I am frustrated seeing how they lead or dealing with cross-team finger-pointing.",
+      "step_2_q": "2. When a team member asks \"What should we do here?\", how do you respond?",
+      "step_2_o1": "Instantly hand them the solution so work finishes quickly, though they stay dependent.",
+      "step_2_o2": "Take it over to review myself, but it ends up accumulating on my desk.",
+      "step_2_o3": "Staff skip their Team Leader and escalate questions directly to me.",
+      "step_3_q": "3. What primary objective do you want to achieve in the next 30 days?",
+      "step_3_o1": "Have structured, assertive conversation scripts to guide my team autonomously.",
+      "step_3_o2": "Eliminate redundant routines and establish a reliable second-in-command to prevent burnout.",
+      "step_3_o3": "Build autonomy and solid cross-team alignment among subordinate leads in my division.",
+      "result_badge": "BEST RECOMMENDATION FOR YOU",
+      "result_title": "You Most Urgently Need :volume",
+      "result_desc": "You can verify the value right now. The Introduction and Chapter 1 have been unlocked for free.",
+      "frameworks_label": "Practical Tools: :frameworks",
+      "cta_open_recommended": "Read Free Introduction & Chapter 1 Now →",
+      "cta_repeat_quiz": "Or view the complete 3-book bundle ↓"
+    },
+    "pricing": {
+      "header_badge": "ONE-TIME INVESTMENT • LIFETIME ACCESS",
+      "badge": "ONE-TIME INVESTMENT • LIFETIME ACCESS",
+      "title": "Liked the Initial Chapters? Unlock All Chapters Now",
+      "desc": "After previewing the Introduction and Chapter 1 for free, unlock full access to all 13 core chapters, 4-week case simulations, 30-day action plans, and ready-to-copy conversation templates.",
+      "bundle": {
+        "badge": "⭐ BEST VALUE • TOP RECOMMENDATION",
+        "sub_badge": "UNLOCK ALL 3 VOLUMES SIMULTANEOUSLY",
+        "title": "Complete Leadership Trilogy Box Set",
+        "desc": "The complete handbook for your leadership journey: from building autonomous teams to engineering sustainable systems and orchestrating multiple leaders.",
+        "features": [
+          "Full access to all 3 Books (39 Practical Chapters + 3 Desk Reference Summaries)",
+          "Hundreds of ready-to-copy scripts and phrases for tough leadership moments",
+          "Seamless language and register switching (Standard & Casual)",
+          "Lifetime interactive Web-Reader access + 3 download-ready A5 PDFs"
+        ],
+        "save_badge": "Save $8.98",
+        "price_note": "One-time payment • Instant lifetime access to all chapters",
+        "cta": "Buy 3-Book Bundle & Unlock All Chapters"
+      },
+      "single_card": {
+        "badge": ":vol • FULL ACCESS",
+        "cta": "Unlock Full :title — :price"
+      },
+      "bundle_badge_1": "⭐ BEST VALUE • TOP RECOMMENDATION",
+      "bundle_badge_2": "UNLOCK ALL 3 VOLUMES SIMULTANEOUSLY",
+      "bundle_title": "Complete Leadership Trilogy Box Set",
+      "bundle_desc": "The complete handbook for your leadership journey: from building autonomous teams to engineering sustainable systems and orchestrating multiple leaders.",
+      "bundle_cta": "Buy 3-Book Bundle & Unlock All Chapters (:price)",
+      "save_badge": "Save :amount",
+      "single_buy_cta": "Buy Now (:price)",
+      "per_once": "/ one-time",
+      "bundle_price_sub": "one-time payment for complete 3 books"
+    },
+    "comparison_table": {
+      "badge": "TIER COMPARISON",
+      "title": "Curriculum & Package Inclusions Comparison",
+      "col_feature": "Curriculum Details & Tools",
+      "col_b1": "Book 01",
+      "col_b2": "Book 02",
+      "col_b3": "Book 03",
+      "col_bundle": "Complete 3-Book Trilogy",
+      "rows": [
+        {
+          "name": "Core Problem Solved",
+          "b1": "Build autonomous teams & correct mistakes without awkwardness",
+          "b2": "Stop daily firefighting & groom your second-in-command",
+          "b3": "Coach subordinate leads & align cross-branch execution",
+          "bundle": "Master all leadership phases from foundation to multi-team scale"
+        },
+        {
+          "name": "Free Preview Access",
+          "b1": "Introduction & Chapter 1",
+          "b2": "Introduction & Chapter 1",
+          "b3": "Introduction & Chapter 1",
+          "bundle": "Introduction & Chapter 1 in All 3 Books"
+        },
+        {
+          "name": "Content Unlocked on Purchase",
+          "b1": "13 Practical Chapters + Reference Summary & PDF",
+          "b2": "13 Practical Chapters + Reference Summary & PDF",
+          "b3": "13 Practical Chapters + Reference Summary & PDF",
+          "bundle": "Total 39 Practical Chapters + 3 Reference Summaries & 3 Complete PDFs"
+        },
+        {
+          "name": "Practical Working Tools",
+          "b1": "Scripts for goal alignment, recognition, & 1-on-1 correction",
+          "b2": "Scripts for schedule audits, delegation, & capacity negotiation",
+          "b3": "Scripts for lead coaching, branch alignment, & conflict mediation",
+          "bundle": "All conversation scripts, case simulations, & full 90-day execution plans"
+        },
+        {
+          "name": "One-Time Investment",
+          "b1": "$4.99",
+          "b2": "$6.99",
+          "b3": "$8.99",
+          "bundle": "$11.99 (Save $8.98)"
+        }
+      ]
+    },
+    "faq": {
+      "badge": "FREQUENTLY ASKED QUESTIONS",
+      "title": "Product Details, Free Preview, & Purchase",
+      "items": [
+        {
+          "q": "Can I try reading the content before purchasing?",
+          "a": "Absolutely! You can read the Introduction and Chapter 1 of Book 1, Book 2, or Book 3 for free directly on this page without entering any payment card. Once you experience the writing style and see the solutions fit your team, you can purchase full access to unlock Chapters 2 through 13 and all Reference Summaries."
+        },
+        {
+          "q": "Is this playbook only suitable for corporate or big enterprise managers?",
+          "a": "Not at all. The principles and scripts in all three books are designed for anyone coordinating people daily—from online shop owners managing admin and warehouse staff, retail branch heads, F&B/SME owners, creative project leads, up to corporate team leaders and division managers."
+        },
+        {
+          "q": "Is this product a physical printed book or a digital web publication?",
+          "a": "It is an interactive web-first digital playbook (Web-Playbook) plus print-ready PDF files. Upon payment, all locked chapters instantly unlock in your Web-Reader account (complete with interactive case studies and copyable scripts), plus clean PDF files you can download for offline reading on mobile, tablet, or laptop."
+        },
+        {
+          "q": "What is the difference between \"Standard\" and \"Casual\" language modes?",
+          "a": "All books are available in two tone options that you can toggle anytime with one button: (1) Standard Mode: Natural, courteous, and polite Indonesian without feeling stiff like an academic textbook. (2) Casual Mode: Peer-to-peer mentoring style that is direct and colloquial. The core strategies, frameworks, and script templates are 100% identical in both modes."
+        },
+        {
+          "q": "How long does access last after payment?",
+          "a": "One-time payment for lifetime access. There are no monthly subscriptions or recurring fees. You also automatically receive future curriculum updates and newly added templates."
+        }
+      ]
+    }
+  },
+  "common": {
+    "close": "Close", "open": "open", "navigate": "navigate", "locked": "Locked", "unlocked": "Unlocked",
+    "total": "Total", "status": "Status", "login": "Sign in", "search": "Search", "copy_error": "Could not copy. Please try again."
+  },
+  "reader": {
+    "animation_loading": "Preparing the 16:9 animation canvas...",
+    "display_mode": "Choose chapter display mode",
+    "pause_animation": "Pause animation", "play_animation": "Play animation", "restart_animation": "Restart animation",
+    "playback_speed": "Change playback speed", "fullscreen": "Fullscreen 16:9",
+    "register_casual": "Casual", "register_casual_hint": "(Gue/Lo)", "register_standard": "Standard", "register_standard_hint": "(Saya/Kamu)",
+    "checklist_title": "Practice checklist", "checklist_error": "Could not save your checklist. Please try again.",
+    "personalizer_title": "Personalize scripts", "personalizer_placeholder": "Example: :name", "reset_name": "Reset name",
+    "personalizer_hint": "All 1-on-1 scripts and dialogues use this name.", "default_name": "Alex",
+    "share_title": "Share a tactical quote", "share_copy": "Copy quote", "share_from": "From :chapter (crow.asia)",
+    "sos_intro": "Instant Topic SOS Search", "sos_hint": "Search dialogue scripts, calibration frameworks, and practical steps across chapters.",
+    "sos_loading": "Searching relevant chapters & scripts...", "sos_empty_hint": "Try another keyword, such as 3K, L1, feedback, or 1-on-1.",
+    "sos_error": "Search failed. Please try again.", "sos_close": "Close search", "search_footer": "Topic & script search",
+    "studio_title": "VISUAL STUDIO 16:9 • CROW.ASIA", "video_explanation": "Video explanation", "chapter_video": "Chapter explanation video",
+    "open_chapters": "Open chapter list", "close_chapters": "Close chapter list", "toggle_sidebar": "Toggle chapter list (Ctrl+\\)",
+    "open_settings": "Open reading & script settings", "settings_scripts": "Settings & scripts", "chapter_list": "Chapter list",
+    "mode_read": "📖 Reading Mode",
+    "mode_animation": "🎬 16:9 Animation",
+    "prev_chapter": "Previous Chapter",
+    "next_chapter": "Next: Chapter :num",
+    "chapter_progress": "Chapter :current of :total",
+    "read_time": "⏱️ ~5-8 min read",
+    "copy_script": "📋 Copy Script",
+    "copied": "✓ Copied!",
+    "footnotes_title": "📚 Footnotes & Citations",
+    "footnotes_hint": "Click to expand notes",
+    "settings_title": "Display Preferences",
+    "register_title": "Language Register (ID)",
+    "paper_theme_title": "Paper Theme",
+    "font_size_title": "Reading Font Size",
+    "font_sm": "Small",
+    "font_base": "Standard",
+    "font_lg": "Large",
+    "sos_search_label": "Topic SOS: Instant Script & Tactics Search",
+    "sos_search_placeholder": "Type an emergency topic (e.g. '3k formula', 'defensive staff', 'evaluation')...",
+    "sos_empty": "No matching topics or scripts found."
+  },
+  "paywall": {
+    "badge": "Exclusive to Registered Readers",
+    "title": "Unlock Full Access: :volume — :title",
+    "description": "Chapters 0 and 1 are free samples. Unlock Chapters 2 through 14 complete with 16:9 interactive animation stages, 1-on-1 scripts, and printable A5 master PDFs.",
+    "feature_1": "15 Complete Chapters",
+    "feature_2": "16:9 Animation Canvas",
+    "feature_3": "A5 Master PDF",
+    "cta_buy": "Unlock Playbook Access (:price)",
+    "cta_login": "Already Purchased? Sign In"
+  },
+  "checkout": {
+    "invalid_email": "Please enter a valid email address.", "failed": "Checkout failed. Please try again.",
+    "phone_label": "Phone number", "password_label": "Create your account password",
+    "password_hint": "Use this password to log in after payment. Already have an account?",
+    "name_label": "Full Name (Optional)", "name_placeholder": "Your Name", "email_placeholder": "name@company.com",
+    "processing": "Processing Checkout...", "gateway_info": "Payment processed via Mayar.id",
+    "payment_methods": "QRIS • BCA • Mandiri • BRI • BNI • Credit Card • International",
+    "currency_hint": "Billed in IDR: Rp:idr (~$:usd USD). Your card issuer converts automatically.",
+    "title": "Complete Playbook Access",
+    "order_summary": "Order Summary",
+    "customer_info": "Customer Information",
+    "email_label": "Email Address",
+    "email_hint": "Your playbook access and PDF files will be linked to this email.",
+    "pay_cta": "Proceed to Secure Payment (:price)",
+    "instant_access": "Instant Activation & Lifetime Access",
+    "back_to_pricing": "Back to Pricing Tiers"
+  },
+  "dashboard": {
+    "active_access": "Active Access", "locked": "Locked", "completed_checklists": "Checklists completed: :count",
+    "order_number": "Order Number", "tier_package": "Tier Package", "paid_at": "Paid At",
+    "title": "Reader Dashboard",
+    "greeting": "Hello, :name",
+    "my_library": "My Playbook Library",
+    "open_reader": "Open Web Reader",
+    "download_pdf": "Download Master PDF A5",
+    "recent_orders": "Order History",
+    "buy_more": "Explore Other Playbooks",
+    "logout": "Sign Out"
+  },
+  "auth": {
+    "invalid_credentials": "The email address or password is incorrect.", "failed": "Login failed. Please try again.", "network_error": "Could not connect. Please try again.",
+    "login_title": "Sign in to crow.asia",
+    "login_desc": "Access all your owned playbooks and PDF downloads.",
+    "email_label": "Email Address",
+    "password_label": "Password",
+    "login_btn": "Sign In to Dashboard",
+    "checking": "Checking Credentials...",
+    "no_account": "Don't have a playbook yet?",
+    "buy_here": "Get a package here",
+    "back_home": "Back to Home"
+  },
+  "compiler": {
+    "scene": {
+      "step_0_label": "01. Problem & Context", "step_0_headline": "Problem & Field Context", "step_0_description": "Practical challenges faced when leading a team.",
+      "step_1_label": "02. Practical Framework", "step_1_headline": "Practical Framework", "step_1_description": "Structured frameworks and steps for applying a solution.",
+      "step_2_label": "03. Script Simulation", "step_2_headline": "1-on-1 Script Simulation", "step_2_description": "A conversation ready to copy, practice, and apply.",
+      "step_3_label": "04. Practice Checklist", "step_3_headline": "This Week's Practice Goals", "step_3_description": "Concrete actions to complete in your workplace.",
+      "leader_default": "Hi {{teammateName}}, let's align the goals and expectations for this task.", "staff_default": "Ready. What are the main points to consider?",
+      "leader_speaker": "Leader", "staff_speaker": "Teammate",
+      "fallback_bullets": ["Review expectations together with the team", "Calibrate tasks in a one-on-one conversation", "Document the agreement in your worksheet"]
+    },
+    "mermaid_badge": "📊 WORKFLOW DIAGRAM • TACTICAL SCHEMA",
+    "practice_badge": "🎯 PRACTICE ACTIONS • WORKSPACE STEPS"
+  },
+  "footer": {
+    "tagline": "Pan-Asian Interactive Leadership Field Playbook",
+    "description": "Tactical desk playbooks for team leads, engineering managers, and executives. Grounded in real field experience and validated organizational research.",
+    "copyright": "© 2026 crow.asia. All rights reserved.",
+    "tech_specs": "Desktop 100vw • Dual-Register • Remotion 16:9 • WCAG AA"
+  }
+}

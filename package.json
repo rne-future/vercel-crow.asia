@@ -1,0 +1,65 @@
+{
+  "name": "vercel-crow-asia",
+  "version": "0.1.0",
+  "private": true,
+  "overrides": {
+    "postcss": "$postcss",
+    "@esbuild-kit/core-utils": {
+      "esbuild": "^0.25.12"
+    }
+  },
+  "scripts": {
+    "dev": "next dev --port 4050",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "test": "node --import tsx tests/run.ts",
+    "test:browser": "node tests/browser-flow.cjs && node tests/browser-i18n.cjs",
+    "typecheck": "tsc --noEmit",
+    "db:check": "drizzle-kit check",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx scripts/seed-manuscripts.ts",
+    "db:seed-translations": "tsx scripts/seed-translations.ts",
+    "db:seed-users": "tsx scripts/seed-users.ts",
+    "db:smoke": "tsx scripts/smoke-db.ts"
+  },
+  "dependencies": {
+    "@auth/drizzle-adapter": "1.11.3",
+    "@next/env": "^15.5.28",
+    "@remotion/player": "^4.0.538",
+    "bcryptjs": "^2.4.3",
+    "drizzle-orm": "^0.45.4",
+    "he": "^2.0.0",
+    "lucide-react": "^1.61.0",
+    "markdown-it": "^15.0.3",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "mermaid": "^12.2.0",
+    "next": "^15.1.0",
+    "next-auth": "5.0.0-beta.32",
+    "postgres": "^3.4.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.538",
+    "sanitize-html": "^2.18.1",
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/sanitize-html": "^2.16.2",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.1.0",
+    "postcss": "^8.5.31",
+    "tsx": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}

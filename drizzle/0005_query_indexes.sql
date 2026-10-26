@@ -1,0 +1,2 @@
+CREATE INDEX "idx_orders_status_created" ON "orders" USING btree ("payment_status","created_at");--> statement-breakpoint
+CREATE INDEX "idx_users_preferred_locale" ON "users" USING btree ("preferred_locale");

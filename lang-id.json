@@ -1,0 +1,351 @@
+{
+  "nav": {
+    "brand": "crow.asia",
+    "leadership_diagnosis": "Diagnosis Kepemimpinan",
+    "playbooks_catalog": "Katalog Playbook",
+    "pricing": "Paket Harga",
+    "search_placeholder": "Cari Topik / Skrip...",
+    "change_theme": "Ganti tema kertas",
+    "login": "Masuk",
+    "dashboard": "Dashboard",
+    "logout": "Keluar",
+    "free_sample": "Sampel Gratis",
+    "chapter": "Bab :num",
+    "read_free_sample": "Baca Bab 0 & 1",
+    "chapters_list": "DAFTAR BAB PLAYBOOK",
+    "back_to_home": "Kembali ke Beranda",
+    "book_titles": {
+      "book-1": "VOL. 01: Mahir Memimpin Tim",
+      "book-2": "VOL. 02: Anti-Burnout",
+      "book-3": "VOL. 03: Orkestrasi"
+    },
+    "select_language": "Pilih Bahasa, Bahasa saat ini: :lang",
+    "language_region": "Bahasa / Wilayah"
+  },
+  "landing": {
+    "meta_title": "crow.asia — Platform Pembaca Taktis Interaktif Kepemimpinan",
+    "badge": "LEADERSHIP TACTICAL PLAYBOOK",
+    "hero": {
+      "badge": "LEADERSHIP TACTICAL PLAYBOOK",
+      "title_prefix": "Panduan Taktis",
+      "title_mark": "Memimpin Tim",
+      "title_middle": "& Menjaga",
+      "title_scribble": "Ketahanan Diri",
+      "title_suffix": "Tanpa Teori Bertele-tele.",
+      "title": "Panduan Taktis Memimpin Tim & Menjaga Ketahanan Diri Tanpa Teori Bertele-tele.",
+      "desc": "Dirancang untuk pemimpin tim baru hingga manajer divisi. Berisi kerangka kerja teruji (CCL, Harvard, Gallup), puluhan skrip percakapan empat mata siap salin, bagan alur interaktif, serta latihan 30 hari yang langsung bisa dipraktikkan.",
+      "cta_free": "Baca Gratis Pendahuluan & Bab 1",
+      "cta_find_book": "Cari Buku yang Cocok Untukmu ↓",
+      "cta_read_free": "Baca Gratis Pendahuluan & Bab 1",
+      "cta_view_bundle": "Lihat Paket Bundel",
+      "preview_animation": "Pratinjau Animasi:",
+      "showcase_loading": "Memuat Showcase 16:9...",
+      "carousel": {
+        "slides": [
+          {
+            "book_id": "book-1",
+            "label": "BUKU 01 • UNTUK PEMIMPIN TIM BARU",
+            "title": "Mahir Memimpin Tim: Strategi Menciptakan Tim yang Mandiri",
+            "short_desc": "Cara memberi arahan yang jelas, menegur tanpa bikin baper, dan melatih anak buah berpikir mandiri.",
+            "action_link": "Baca Gratis Bab 1 →"
+          },
+          {
+            "book_id": "book-2",
+            "label": "BUKU 02 • UNTUK LEADER YANG MULAI KEWALAHAN",
+            "title": "Napas Panjang Memimpin Tim: Mengatasi Kejenuhan & Membangun Sistem",
+            "short_desc": "Cara berhenti jadi \"pemadam kebakaran\" setiap hari, mencetak tangan kanan, dan pulang kerja dengan pikiran tenang.",
+            "action_link": "Baca Gratis Bab 1 →"
+          },
+          {
+            "book_id": "book-3",
+            "label": "BUKU 03 • UNTUK PEMIMPIN MULTI-TIM / CABANG",
+            "title": "Memimpin Para Leader: Dari Mengarahkan Tim ke Menggerakkan Divisi",
+            "short_desc": "Cara membina para kepala tim di bawahmu, meruntuhkan ego antar-tim, dan menerjemahkan target besar usaha.",
+            "action_link": "Baca Gratis Bab 1 →"
+          }
+        ],
+        "go_to_slide": "Ke slide :num",
+        "prev_slide": "Slide sebelumnya",
+        "next_slide": "Slide berikutnya"
+      }
+    },
+    "catalog": {
+      "badge": "KURIKULUM TRILOGI KEPEMIMPINAN",
+      "title": "3 Buku Panduan Sesuai Tahap Tantanganmu Memimpin Orang",
+      "desc": "Bukan buku teori kampus yang tebal dan mengawang-awang. Setiap buku berisi langkah praktis, studi kasus nyata, dan contoh kalimat percakapan yang bisa langsung kamu pakai di tempat kerja maupun tempat usahamu.",
+      "status_free_sample": "🔓 GRATIS BAB AWAL",
+      "cinematic_motion": "✨ Gerakan Sinematik",
+      "edition_label": "ID + EN",
+      "chapters_count_label": "13 Bab Praktis + Lampiran",
+      "access_info": "Terbuka gratis: Pendahuluan & Bab 1 (Lanjut beli untuk membuka Bab 2–13 & Lampiran)",
+      "suitable_for": "Cocok Untuk:",
+      "key_frameworks": "Kerangka Kunci:",
+      "single_access": "Akses Tunggal:",
+      "chapters_count": ":count Bab + PDF",
+      "start_reading": "Mulai Membaca",
+      "read_free_sample": "Baca Gratis Bab 1",
+      "read_free_btn": "Mulai Membaca",
+      "buy_now": "Beli →",
+      "curriculum_tag_book-1": "PEMIMPIN TIM BARU",
+      "curriculum_tag_book-2": "LEADER MULAI KEWALAHAN",
+      "curriculum_tag_book-3": "PEMIMPIN MULTI-TIM / CABANG",
+      "cover_titles": {
+        "book-1": { "top": "MAHIR", "bottom": "MEMIMPIN TIM" },
+        "book-2": { "top": "NAFAS PANJANG", "bottom": "MEMIMPIN TIM" },
+        "book-3": { "top": "MEMIMPIN", "bottom": "PARA LEADER" }
+      },
+      "target_roles": {
+        "book-1": "Pemimpin tim baru, kepala toko, bos online shop, ketua proyek, atau staf senior yang baru dipercaya membimbing anggota tim.",
+        "book-2": "Pemilik usaha, pengelola operasional, supervisor, dan pemimpin tim yang mulai lelah menjadi 'pemadam kebakaran' setiap hari.",
+        "book-3": "Pemilik bisnis multi-cabang, kepala operasional, manajer divisi, atau siapa pun yang membawahi beberapa kepala tim sekaligus."
+      },
+      "cta_paragraphs": {
+        "book-1": "Membantumu melewati masa canggung saat pertama kali memimpin orang. Kamu akan mempelajari cara menyepakati target kerja yang jelas sejak hari pertama, cara memancing anak buah mencari solusi sendiri, serta cara menegur kesalahan kerja secara empat mata tanpa menjatuhkan mental mereka.",
+        "book-2": "Dirancang untuk menyelamatkan waktu dan energimu tanpa menurunkan performa tim. Kamu akan mempraktikkan cara memangkas rutinitas yang mubazir, menolak mengambil alih tugas anak buah yang mengeluh mentok, mencetak tangan kanan sebagai pelapis, serta memutus pikiran kerja seusai jam kerja agar istirahatmu benar-benar pulih.",
+        "book-3": "Membantumu beralih dari mengurus teknis harian ke memimpin melalui para kepala tim di bawahmu. Kamu akan mempelajari cara melatih kepala tim menyelesaikan masalah anggotanya sendiri, menjaga wibawa mereka di depan staf, meruntuhkan gesekan antar-tim, serta menerjemahkan target besar usaha menjadi sasaran kerja yang selaras."
+      }
+    },
+    "quiz": {
+      "header_badge": "PANDUAN PILIH BUKU (30 DETIK)",
+      "title": "Bingung Mulai Baca dari Buku yang Mana?",
+      "desc": "Jawab pertanyaan singkat ini sesuai situasi yang paling sering kamu hadapi belakangan ini.",
+      "card_badge": "Diagnosis Kepemimpinan",
+      "step_indicator": "Langkah :current / :total",
+      "step_1_q": "1. Situasi apa yang paling sering menguras pikiran kamu minggu ini?",
+      "step_1_o1": "Saya sering sungkan menegur staf yang salah, bingung memberi arahan jelas, dan sering berakhir membereskan ulang pekerjaan mereka sendiri.",
+      "step_1_o2": "Tim saya sudah jalan, tapi semua urusan harian masih menumpuk di pundak saya. Waktu habis buat urusan dadakan dan susah istirahat tenang.",
+      "step_1_o3": "Saya membawahi beberapa kepala tim atau cabang. Sering pusing melihat cara mereka memimpin atau tim yang saling lempar tanggung jawab.",
+      "step_2_q": "2. Saat anggota tim bertanya \"Sebaiknya ini bagaimana ya?\", apa respons kamu?",
+      "step_2_o1": "Langsung memberikan solusinya agar pekerjaan cepat selesai, meski mereka jadi kurang mandiri.",
+      "step_2_o2": "Mengambil alih untuk diperiksa sendiri, namun akhirnya menumpuk di meja kerja saya.",
+      "step_2_o3": "Staf melompati kepala tim mereka dan bertanya langsung kepada saya.",
+      "step_3_q": "3. Apa sasaran utama yang ingin kamu capai dalam 30 hari ke depan?",
+      "step_3_o1": "Memiliki skrip percakapan yang tegas dan terstruktur untuk membimbing tim mandiri.",
+      "step_3_o2": "Memangkas rutinitas mubazir dan mencetak tangan kanan agar tidak burnout.",
+      "step_3_o3": "Membangun kemandirian dan keselarasan antar-kepala tim di bawah saya.",
+      "result_badge": "REKOMENDASI TERBAIK UNTUKMU",
+      "result_title": "Kamu Paling Membutuhkan :volume",
+      "result_desc": "Kamu bisa langsung membuktikan kecocokan isinya sekarang. Halaman Pendahuluan dan Bab 1 sudah kami buka gratis khusus untukmu.",
+      "frameworks_label": "Panduan Praktis: :frameworks",
+      "cta_open_recommended": "Baca Gratis Pendahuluan & Bab 1 Sekarang →",
+      "cta_repeat_quiz": "Ulangi Kuis Diagnosis"
+    },
+    "pricing": {
+      "header_badge": "INVESTASI SEKALI BAYAR • AKSES SELAMANYA",
+      "badge": "INVESTASI SEKALI BAYAR • AKSES SELAMANYA",
+      "title": "Sudah Cocok dengan Bab Awalnya? Buka Seluruh Bab Sekarang",
+      "desc": "Setelah membaca gratis Pendahuluan dan Bab 1, kamu bisa membuka akses penuh ke seluruh 13 bab inti, simulasi kasus 4 minggu, rencana praktik 30 hari, dan lampiran skrip percakapan siap salin.",
+      "bundle": {
+        "badge": "⭐ PALING HEMAT • PILIHAN TERBAIK",
+        "sub_badge": "BUKA SELURUH 3 BUKU SEKALIGUS",
+        "title": "Paket Lengkap Trilogi Kepemimpinan",
+        "desc": "Pegangan lengkap untuk perjalanan kepemimpinanmu: mulai dari membentuk tim yang mandiri, membangun sistem kerja yang tahan banting, hingga mengelola beberapa kepala tim sekaligus.",
+        "features": [
+          "Buka penuh seluruh isi 3 Buku (Total 39 Bab Praktis + 3 Lampiran Meja Kerja)",
+          "Ratusan contoh kalimat & skrip percakapan siap salin untuk berbagai situasi sulit",
+          "Bebas beralih mode bahasa bacaan kapan saja (Bahasa Standar Luwes & Bahasa Santai)",
+          "Akses Web-Reader interaktif selamanya + Unduhan PDF siap cetak untuk ketiga buku"
+        ],
+        "save_badge": "Hemat Rp88.000",
+        "price_note": "Sekali bayar • Langsung buka semua bab",
+        "cta": "Beli Paket 3 Buku & Buka Semua Bab"
+      },
+      "single_card": {
+        "badge": ":vol • AKSES PENUH",
+        "cta": "Buka Penuh :title — :price"
+      },
+      "bundle_badge_1": "⭐ PALING HEMAT • PILIHAN TERBAIK",
+      "bundle_badge_2": "BUKA SELURUH 3 BUKU SEKALIGUS",
+      "bundle_title": "Paket Lengkap Trilogi Kepemimpinan",
+      "bundle_desc": "Pegangan lengkap untuk perjalanan kepemimpinanmu: mulai dari membentuk tim yang mandiri, membangun sistem kerja yang tahan banting, hingga mengelola beberapa kepala tim sekaligus.",
+      "bundle_cta": "Beli Paket 3 Buku & Buka Semua Bab (:price)",
+      "save_badge": "Hemat :amount",
+      "single_buy_cta": "Beli Sekarang (:price)",
+      "per_once": "/ sekali bayar",
+      "bundle_price_sub": "sekali bayar untuk 3 buku lengkap"
+    },
+    "comparison_table": {
+      "badge": "PERBANDINGAN PAKET",
+      "title": "Tabel Perbandingan Materi & Nilai Antar Paket",
+      "col_feature": "Rincian Fitur & Isi",
+      "col_b1": "Buku 01",
+      "col_b2": "Buku 02",
+      "col_b3": "Buku 03",
+      "col_bundle": "Paket Lengkap 3 Buku",
+      "rows": [
+        {
+          "name": "Fokus Masalah Utama",
+          "b1": "Membentuk tim mandiri & berani menegur tanpa canggung",
+          "b2": "Berhenti jadi \"pemadam kebakaran\" & membangun tangan kanan",
+          "b3": "Membina para kepala tim & menyatukan kerja lintas tim/cabang",
+          "bundle": "Menguasai seluruh tahap kepemimpinan dari dasar hingga multi-tim"
+        },
+        {
+          "name": "Akses Baca Gratis",
+          "b1": "Pendahuluan & Bab 1",
+          "b2": "Pendahuluan & Bab 1",
+          "b3": "Pendahuluan & Bab 1",
+          "bundle": "Pendahuluan & Bab 1 di Ketiga Buku"
+        },
+        {
+          "name": "Materi yang Terbuka Saat Membeli",
+          "b1": "13 Bab Praktis + Lampiran Ringkasan & PDF",
+          "b2": "13 Bab Praktis + Lampiran Ringkasan & PDF",
+          "b3": "13 Bab Praktis + Lampiran Ringkasan & PDF",
+          "bundle": "Total 39 Bab Praktis + 3 Lampiran Ringkasan & 3 PDF Lengkap"
+        },
+        {
+          "name": "Alat Bantu Praktis di Dalamnya",
+          "b1": "Skrip kesepakatan target, apresiasi, & teguran empat mata",
+          "b2": "Skrip penataan jadwal, kaderisasi tangan kanan, & negosiasi beban",
+          "b3": "Skrip pembinaan kepala tim, penyelarasan cabang, & mediasi konflik",
+          "bundle": "Seluruh skrip percakapan, simulasi kasus, & rencana 90 hari penuh"
+        },
+        {
+          "name": "Investasi Sekali Bayar",
+          "b1": "Rp59.000",
+          "b2": "Rp79.000",
+          "b3": "Rp99.000",
+          "bundle": "Rp149.000 (Hemat Rp88.000)"
+        }
+      ]
+    },
+    "faq": {
+      "badge": "TANYA JAWAB (FAQ)",
+      "title": "Informasi Produk, Cara Baca Gratis, & Pembelian",
+      "items": [
+        {
+          "q": "Apakah saya bisa mencoba membaca isinya dulu sebelum membeli?",
+          "a": "Sangat bisa! Kamu bisa langsung membaca bagian Pendahuluan dan Bab 1 dari Buku 1, Buku 2, maupun Buku 3 secara gratis langsung di halaman ini tanpa perlu mendaftar kartu pembayaran. Jika kamu merasa gaya bahasanya cocok dan solusinya relevan dengan masalah timmu, barulah kamu membeli akses penuh untuk membuka Bab 2 hingga Bab 13 beserta Lampiran Ringkasannya."
+        },
+        {
+          "q": "Apakah buku ini hanya cocok untuk manajer kantoran/perusahaan besar?",
+          "a": "Tidak sama sekali. Prinsip dan contoh kalimat di dalam ketiga buku ini dirancang untuk siapa saja yang mengoordinasikan orang lain sehari-hari—mulai dari pemilik online shop yang membawahi admin dan staf gudang, kepala toko/cabang ritel, pemilik usaha kuliner/UMKM, ketua proyek kreatif, hingga supervisor dan manajer divisi di perusahaan."
+        },
+        {
+          "q": "Apakah produk ini berbentuk buku cetak fisik atau buku digital?",
+          "a": "Produk ini berbentuk buku digital interaktif (Web-Playbook) sekaligus dokumen PDF siap cetak. Setelah pembayaran berhasil, seluruh bab yang terkunci akan langsung terbuka di akun Web-Reader milikmu (dilengkapi simulasi kasus interaktif dan kotak skrip yang mudah disalin), ditambah file PDF rapi yang bisa kamu unduh untuk dibaca secara offline di ponsel, tablet, atau laptop."
+        },
+        {
+          "q": "Apa bedanya mode bahasa \"Standar Luwes\" dan \"Kasual\" di dalam buku?",
+          "a": "Seluruh isi buku tersedia dalam dua pilihan gaya sapaan yang bisa kamu ganti kapan saja lewat satu tombol di pojok layar baca: (1) Mode Standar Luwes (Saya/Kamu): Menggunakan bahasa Indonesia yang mengalir, sopan, dan akrab tanpa terasa kaku seperti buku teks akademik. (2) Mode Kasual (Gue/Lo): Menggunakan gaya obrolan tongkrongan/mentor sebaya yang santai dan blak-blakan. Esensi materi dan kelengkapan skrip di kedua mode sama-sama 100% utuh."
+        },
+        {
+          "q": "Berapa lama masa berlaku akses setelah saya melakukan pembayaran?",
+          "a": "Sekali bayar untuk akses selamanya (lifetime access). Tidak ada biaya langganan bulanan. Kamu juga otomatis mendapatkan pembaruan materi jika ada penambahan studi kasus atau templat baru di kemudian hari."
+        }
+      ]
+    }
+  },
+  "common": {
+    "close": "Tutup", "open": "buka", "navigate": "navigasi", "locked": "Terkunci", "unlocked": "Terbuka",
+    "total": "Total", "status": "Status", "login": "Login", "search": "Cari", "copy_error": "Gagal menyalin. Silakan coba lagi."
+  },
+  "reader": {
+    "animation_loading": "Menyiapkan Kanvas Animasi 16:9...",
+    "display_mode": "Pilih Mode Tampilan Bab",
+    "pause_animation": "Jeda Animasi", "play_animation": "Putar Animasi", "restart_animation": "Ulangi Animasi dari Awal",
+    "playback_speed": "Ubah Kecepatan Putar", "fullscreen": "Layar Penuh 16:9",
+    "register_casual": "Kasual", "register_casual_hint": "(Gue/Lo)", "register_standard": "Standar", "register_standard_hint": "(Saya/Kamu)",
+    "checklist_title": "Checklist praktik", "checklist_error": "Checklist gagal disimpan. Silakan coba lagi.",
+    "personalizer_title": "Personalisasi Skrip", "personalizer_placeholder": "Contoh: :name", "reset_name": "Reset nama",
+    "personalizer_hint": "Semua skrip 1-on-1 dan dialog langsung tersinkron memakai nama ini.", "default_name": "Budi",
+    "share_title": "Bagikan Kutipan Taktis", "share_copy": "Salin Kutipan", "share_from": "Dari :chapter (crow.asia)",
+    "sos_intro": "Pencarian Instan SOS Topik", "sos_hint": "Cari skrip dialog, rumus kalibrasi, dan langkah taktis di seluruh bab.",
+    "sos_loading": "Mencari bab & skrip relevan...", "sos_empty_hint": "Coba kata kunci lain seperti 3K, L1, koreksi, atau 1-on-1.",
+    "sos_error": "Pencarian gagal. Silakan coba lagi.", "sos_close": "Tutup pencarian", "search_footer": "Pencarian topik & skrip",
+    "studio_title": "STUDIO VISUAL 16:9 • CROW.ASIA", "video_explanation": "Video Penjelasan", "chapter_video": "Video Penjelasan Bab",
+    "open_chapters": "Buka Daftar Bab", "close_chapters": "Tutup Daftar Bab", "toggle_sidebar": "Buka/tutup daftar bab (Ctrl+\\)",
+    "open_settings": "Buka Pengaturan Baca & Skrip", "settings_scripts": "Pengaturan & Skrip", "chapter_list": "Daftar Bab",
+    "mode_read": "📖 Mode Baca",
+    "mode_animation": "🎬 Animasi 16:9",
+    "prev_chapter": "Bab Sebelumnya",
+    "next_chapter": "Lanjut: Bab :num",
+    "chapter_progress": "Bab :current dari :total",
+    "read_time": "⏱️ ~5-8 menit baca",
+    "copy_script": "📋 Salin Skrip",
+    "copied": "✓ Tersalin!",
+    "footnotes_title": "📚 Catatan Kaki & Rujukan Riset",
+    "footnotes_hint": "Klik untuk buka catatan",
+    "settings_title": "Pengaturan Tampilan",
+    "register_title": "Gaya Bahasa Naskah (ID)",
+    "paper_theme_title": "Tema Kertas Baca",
+    "font_size_title": "Ukuran Teks Baca",
+    "font_sm": "Kecil",
+    "font_base": "Standar",
+    "font_lg": "Besar",
+    "sos_search_label": "SOS Topik: Cari Skrip & Langkah Taktis",
+    "sos_search_placeholder": "Ketik topik darurat (misal: 'rumus 3k', 'staf defensif', 'evaluasi')...",
+    "sos_empty": "Tidak ada topik atau skrip yang cocok."
+  },
+  "paywall": {
+    "badge": "Akses Khusus Pembaca Resmi",
+    "title": "Buka Akses Penuh: :volume — :title",
+    "description": "Bab 0 dan Bab 1 dapat dibaca gratis. Untuk membuka Bab 2 hingga Bab 14 lengkap beserta kanvas interaktif Remotion 16:9, skrip 1-on-1, dan master PDF A5, silakan dapatkan akses playbook ini.",
+    "feature_1": "15 Bab Lengkap",
+    "feature_2": "Mode Animasi 16:9",
+    "feature_3": "Master PDF A5",
+    "cta_buy": "Buka Akses Playbook (:price)",
+    "cta_login": "Sudah Membeli? Masuk"
+  },
+  "checkout": {
+    "invalid_email": "Silakan masukkan alamat email yang valid.", "failed": "Checkout gagal. Silakan coba lagi.",
+    "phone_label": "Nomor telepon", "password_label": "Buat password akun Anda",
+    "password_hint": "Gunakan password ini untuk login setelah pembayaran. Sudah punya akun?",
+    "name_label": "Nama Lengkap (Opsional)", "name_placeholder": "Nama Anda", "email_placeholder": "nama@perusahaan.com",
+    "processing": "Menyiapkan Pembayaran...", "gateway_info": "Pembayaran diproses via Mayar.id",
+    "payment_methods": "QRIS • BCA • Mandiri • BRI • BNI • Kartu Kredit • Internasional",
+    "currency_hint": "Ditagih dalam IDR: Rp:idr (~$:usd USD). Penerbit kartu Anda mengonversi secara otomatis.",
+    "title": "Selesaikan Akses Playbook",
+    "order_summary": "Ringkasan Pembelian",
+    "customer_info": "Informasi Pembeli",
+    "email_label": "Alamat Email",
+    "email_hint": "Akses playbook dan file PDF akan ditautkan ke email ini.",
+    "pay_cta": "Lanjut ke Pembayaran Aman (:price)",
+    "instant_access": "Aktivasi Instan & Akses Seumur Hidup",
+    "back_to_pricing": "Kembali ke Paket Harga"
+  },
+  "dashboard": {
+    "active_access": "Akses Aktif", "locked": "Terkunci", "completed_checklists": "Latihan Checklist: :count",
+    "order_number": "Nomor Order", "tier_package": "Paket", "paid_at": "Waktu Bayar",
+    "title": "Dashboard Pembaca",
+    "greeting": "Halo, :name",
+    "my_library": "Pustaka Playbook Saya",
+    "open_reader": "Buka Web Reader",
+    "download_pdf": "Unduh Master PDF A5",
+    "recent_orders": "Riwayat Transaksi",
+    "buy_more": "Beli Playbook Lain",
+    "logout": "Keluar"
+  },
+  "auth": {
+    "invalid_credentials": "Alamat email atau password tidak sesuai.", "failed": "Login gagal. Silakan coba lagi.", "network_error": "Tidak dapat terhubung. Silakan coba lagi.",
+    "login_title": "Masuk ke crow.asia",
+    "login_desc": "Akses seluruh playbook yang sudah Anda miliki beserta unduhan PDF.",
+    "email_label": "Alamat Email",
+    "password_label": "Password",
+    "login_btn": "Masuk ke Dashboard",
+    "checking": "Memeriksa Kredensial...",
+    "no_account": "Belum punya playbook?",
+    "buy_here": "Beli paket di sini",
+    "back_home": "Kembali ke Beranda"
+  },
+  "compiler": {
+    "scene": {
+      "step_0_label": "01. Masalah & Konteks", "step_0_headline": "Masalah & Konteks Lapangan", "step_0_description": "Tantangan nyata yang dihadapi saat memimpin tim di lapangan.",
+      "step_1_label": "02. Kerangka Taktis", "step_1_headline": "Kerangka Taktis", "step_1_description": "Rumus dan langkah terstruktur untuk mengeksekusi solusi.",
+      "step_2_label": "03. Simulasi Skrip", "step_2_headline": "Simulasi Skrip 1-on-1", "step_2_description": "Praktik percakapan empat mata yang siap disalin dan diterapkan.",
+      "step_3_label": "04. Checklist Praktik", "step_3_headline": "Target Praktik Minggu Ini", "step_3_description": "Langkah konkret yang harus dituntaskan langsung di meja kerja.",
+      "leader_default": "Halo {{teammateName}}, yuk kita selaraskan target dan ekspektasi kerjaan ini.", "staff_default": "Siap, apa saja poin utama yang perlu diperhatikan?",
+      "leader_speaker": "Leader", "staff_speaker": "Tim",
+      "fallback_bullets": ["Tinjau kembali ekspektasi target bersama tim", "Jalankan kalibrasi tugas secara empat mata", "Dokumentasikan kesepakatan di lembar kerja"]
+    },
+    "mermaid_badge": "📊 DIAGRAM ALUR KERJA • SKEMA TAKTIS",
+    "practice_badge": "🎯 LATIHAN PRAKTIK • AKSI MEJA KERJA"
+  },
+  "footer": {
+    "tagline": "Buku Panduan Lapangan Kepemimpinan Pan-Asia",
+    "description": "Buku pegangan meja kerja taktis untuk para pemimpin tim, manajer rekayasa, dan eksekutif. Ditulis berbasis studi lapangan nyata dan riset perilaku organisasi teruji.",
+    "copyright": "© 2026 crow.asia. Seluruh hak cipta dilindungi undang-undang.",
+    "tech_specs": "Desktop 100vw • Dual-Register • Remotion 16:9 • WCAG AA"
+  }
+}

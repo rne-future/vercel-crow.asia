@@ -1,0 +1,912 @@
+@import "tailwindcss";
+
+
+
+
+@source "../app/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
+
+@theme inline {
+  --font-sans: var(--font-crow-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-crow-serif), "Newsreader", "Source Serif 4", ui-serif, Georgia, serif;
+  --font-mono: var(--font-crow-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-hand: var(--font-crow-hand), "Patrick Hand", cursive;
+
+  --color-crow-ink: #111113;
+  --color-crow-ivory: #FAF8F5;
+  --color-crow-sepia: #F4ECD8;
+  --color-crow-obsidian: #121316;
+  --color-crow-border: #E5E0D5;
+  --color-crow-gold: #FFE66D;
+
+  --color-vol-1-cobalt: #1D4ED8;
+  --color-vol-2-terracotta: #EA580C;
+  --color-vol-3-emerald: #0F766E;
+}
+
+/* ==============================================================================
+   CUSTOM AESTHETIC SCROLLBAR SYSTEM (THIN & ELEGANT)
+   ============================================================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 17, 19, 0.18) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 19, 0.18);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 19, 0.35);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Scrollbar Sepia */
+[data-paper-theme="sepia"] * {
+  scrollbar-color: rgba(68, 64, 60, 0.25) transparent;
+}
+[data-paper-theme="sepia"] ::-webkit-scrollbar-thumb {
+  background: rgba(68, 64, 60, 0.25);
+}
+[data-paper-theme="sepia"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(68, 64, 60, 0.45);
+}
+
+/* Scrollbar Obsidian (Dark) */
+[data-paper-theme="obsidian"] * {
+  scrollbar-color: rgba(244, 244, 245, 0.2) transparent;
+}
+[data-paper-theme="obsidian"] ::-webkit-scrollbar-thumb {
+  background: rgba(244, 244, 245, 0.2);
+}
+[data-paper-theme="obsidian"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 244, 245, 0.4);
+}
+
+/* ==============================================================================
+   TEMA KERTAS BACA (IVORY / SEPIA / OBSIDIAN)
+   ============================================================================== */
+[data-paper-theme="ivory"] {
+  background-color: var(--color-crow-ivory);
+  color: var(--color-crow-ink);
+}
+
+[data-paper-theme="sepia"] {
+  background-color: var(--color-crow-sepia);
+  color: #1C1917;
+}
+
+[data-paper-theme="obsidian"] {
+  background-color: var(--color-crow-obsidian);
+  color: #F4F4F5;
+}
+
+/* Tactile Paper Sheet Surfaces */
+.reading-sheet {
+  background-color: #FFFFFF;
+  border-color: #E5E0D5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 20px 40px -15px rgba(0, 0, 0, 0.03);
+}
+
+[data-paper-theme="sepia"] .reading-sheet {
+  background-color: #FBF6EA;
+  border-color: #E2D9C3;
+  box-shadow: 0 1px 3px rgba(28, 25, 23, 0.04);
+}
+
+[data-paper-theme="obsidian"] .reading-sheet {
+  background-color: #181A20;
+  border-color: #2D3139;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================================================================
+   TYPOGRAPHY & DYNAMIC FONT SCALING (KECIL / STANDAR / BESAR)
+   ============================================================================== */
+article.prose {
+  color: var(--color-crow-ink);
+  line-height: 1.85;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Standar (Default: 17px) */
+article.prose,
+[data-font-size="base"] article.prose {
+  font-size: 1.0625rem;
+}
+article.prose > p:first-of-type,
+[data-font-size="base"] article.prose > p:first-of-type {
+  font-size: 1.1875rem;
+  line-height: 1.85;
+  color: #18181B;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+[data-font-size="base"] article p,
+[data-font-size="base"] article li {
+  font-size: 1.0625rem;
+}
+
+/* Kecil (15px) */
+[data-font-size="sm"] article.prose {
+  font-size: 0.9375rem;
+}
+[data-font-size="sm"] article.prose > p:first-of-type {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+[data-font-size="sm"] article p,
+[data-font-size="sm"] article li {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+[data-font-size="sm"] article table {
+  font-size: 0.8125rem;
+}
+
+/* Besar (20px) */
+[data-font-size="lg"] article.prose {
+  font-size: 1.25rem;
+}
+[data-font-size="lg"] article.prose > p:first-of-type {
+  font-size: 1.375rem;
+  line-height: 1.95;
+  margin-bottom: 2rem;
+}
+[data-font-size="lg"] article p,
+[data-font-size="lg"] article li {
+  font-size: 1.25rem;
+  line-height: 1.95;
+}
+[data-font-size="lg"] article table {
+  font-size: 1rem;
+}
+
+[data-paper-theme="sepia"] article.prose > p:first-of-type {
+  color: #1C1917;
+}
+
+[data-paper-theme="obsidian"] article.prose > p:first-of-type {
+  color: #F4F4F5;
+}
+
+/* Headings */
+article h1, article h2, article h3, article h4 {
+  color: var(--color-crow-ink);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+article h2 {
+  font-size: 1.625rem;
+  line-height: 1.35;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-crow-border);
+}
+
+article h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-top: 2.25rem;
+  margin-bottom: 0.875rem;
+  color: var(--color-crow-ink);
+}
+
+article h4 {
+  font-size: 1.0625rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-paper-theme="obsidian"] article h1,
+[data-paper-theme="obsidian"] article h2,
+[data-paper-theme="obsidian"] article h3,
+[data-paper-theme="obsidian"] article h4 {
+  color: #F4F4F5;
+  border-bottom-color: #2D3139;
+}
+
+article p {
+  margin: 1.35rem 0;
+  line-height: 1.85;
+  color: #27272A;
+}
+
+[data-paper-theme="sepia"] article p {
+  color: #1C1917;
+}
+
+[data-paper-theme="obsidian"] article p {
+  color: #D4D4D8;
+}
+
+article strong {
+  font-weight: 800;
+  color: var(--color-crow-ink);
+}
+
+[data-paper-theme="obsidian"] article strong {
+  color: #FFFFFF;
+}
+
+/* Matched Italic */
+article em {
+  font-style: italic;
+  font-family: inherit;
+}
+
+/* Highlighting */
+article mark, article ins {
+  background-color: var(--color-crow-gold);
+  color: #111113;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+
+/* ==============================================================================
+   LISTS & BULLET POINTS
+   ============================================================================== */
+article ul {
+  list-style-type: disc !important;
+  margin: 1.35rem 0 1.6rem 2rem !important;
+  padding-left: 0.5rem !important;
+}
+
+article ul li {
+  margin: 0.65rem 0 !important;
+  padding-left: 0.375rem !important;
+  line-height: 1.75 !important;
+  color: #27272A;
+}
+
+article ol {
+  list-style-type: decimal !important;
+  margin: 1.35rem 0 1.6rem 2rem !important;
+  padding-left: 0.5rem !important;
+}
+
+article ol li {
+  margin: 0.65rem 0 !important;
+  padding-left: 0.375rem !important;
+  line-height: 1.75 !important;
+  color: #27272A;
+}
+
+article ul li::marker {
+  color: var(--color-vol-1-cobalt);
+  font-size: 1.1em;
+}
+
+article ol li::marker {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--color-crow-ink);
+}
+
+/* ==============================================================================
+   KARTU LATIHAN PRAKTIK BAB (.crow-practice-section)
+   ============================================================================== */
+.crow-practice-section {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background-color: #FAF8F5;
+  border: 1px solid var(--color-crow-border);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.crow-practice-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-crow-border);
+}
+
+.crow-practice-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-vol-3-emerald);
+  background-color: rgba(15, 118, 110, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+}
+
+.crow-practice-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.crow-practice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-crow-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.15s ease;
+}
+
+.crow-practice-card:hover {
+  border-color: #D1CDC7;
+}
+
+.crow-practice-num {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-crow-ink);
+  color: var(--color-crow-gold);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.crow-practice-content {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #27272A;
+}
+
+.crow-practice-content p {
+  margin: 0 !important;
+  color: inherit;
+}
+
+.crow-practice-content strong {
+  color: var(--color-crow-ink);
+  font-weight: 800;
+}
+
+/* Sepia Theme Practice Cards */
+[data-paper-theme="sepia"] .crow-practice-section {
+  background-color: #F4ECD8;
+  border-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] .crow-practice-header {
+  border-bottom-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] .crow-practice-card {
+  background-color: #FAF4E6;
+  border-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] .crow-practice-content {
+  color: #1C1917;
+}
+
+/* Obsidian Theme Practice Cards */
+[data-paper-theme="obsidian"] .crow-practice-section {
+  background-color: #121316;
+  border-color: #2D3139;
+}
+[data-paper-theme="obsidian"] .crow-practice-header {
+  border-bottom-color: #2D3139;
+}
+[data-paper-theme="obsidian"] .crow-practice-card {
+  background-color: #1A1C22;
+  border-color: #2D3139;
+}
+[data-paper-theme="obsidian"] .crow-practice-num {
+  background-color: #27272A;
+  color: #FFE66D;
+}
+[data-paper-theme="obsidian"] .crow-practice-content {
+  color: #D4D4D8;
+}
+[data-paper-theme="obsidian"] .crow-practice-content strong {
+  color: #FFFFFF;
+}
+
+/* ==============================================================================
+   TABEL GFM EDITORIAL (RESPONSIVE & CLEAN)
+   ============================================================================== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2.25rem 0;
+  border-radius: 0.875rem;
+  border: 1px solid var(--color-crow-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background-color: #FFFFFF;
+}
+
+article thead {
+  background-color: #FAF8F5;
+  border-bottom: 2px solid var(--color-crow-border);
+}
+
+article th {
+  padding: 1rem 1.25rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-crow-ink);
+  text-align: left;
+  border-bottom: 2px solid var(--color-crow-border);
+}
+
+article td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-crow-border);
+  color: #27272A;
+  vertical-align: top;
+}
+
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+
+article tbody tr:nth-child(even) {
+  background-color: #FAFAF9;
+}
+
+article tbody tr:hover {
+  background-color: #F5F5F4;
+}
+
+/* Sepia Theme Tables */
+[data-paper-theme="sepia"] .table-responsive {
+  border-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] article table {
+  background-color: #FAF4E6;
+}
+[data-paper-theme="sepia"] article thead {
+  background-color: #EFE4CC;
+  border-bottom-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] article td {
+  border-color: #E2D9C3;
+  color: #1C1917;
+}
+[data-paper-theme="sepia"] article tbody tr:nth-child(even) {
+  background-color: #F5EBCE;
+}
+
+/* Obsidian Theme Tables */
+[data-paper-theme="obsidian"] .table-responsive {
+  border-color: #2D3139;
+}
+[data-paper-theme="obsidian"] article table {
+  background-color: #16181D;
+}
+[data-paper-theme="obsidian"] article thead {
+  background-color: #1F2228;
+  border-bottom-color: #2D3139;
+}
+[data-paper-theme="obsidian"] article th {
+  color: #F4F4F5;
+}
+[data-paper-theme="obsidian"] article td {
+  border-bottom-color: #2D3139;
+  color: #D4D4D8;
+}
+[data-paper-theme="obsidian"] article tbody tr:nth-child(even) {
+  background-color: #1A1D23;
+}
+
+/* ==============================================================================
+   CALLOUTS EDITORIAL & TACTICAL CARDS
+   ============================================================================== */
+.crow-callout {
+  margin: 2.25rem 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--color-crow-border);
+  border-left-width: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.crow-callout-title {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.625rem;
+  text-transform: uppercase;
+}
+
+.crow-callout-note {
+  border-left-color: var(--color-vol-1-cobalt);
+  background-color: #F8FAFC;
+}
+.crow-callout-note .crow-callout-title {
+  color: var(--color-vol-1-cobalt);
+}
+
+.crow-callout-tip {
+  border-left-color: var(--color-vol-3-emerald);
+  background-color: #F0FDF4;
+}
+.crow-callout-tip .crow-callout-title {
+  color: var(--color-vol-3-emerald);
+}
+
+.crow-callout-important {
+  border-left-color: var(--color-vol-2-terracotta);
+  background-color: #FFF7ED;
+}
+.crow-callout-important .crow-callout-title {
+  color: var(--color-vol-2-terracotta);
+}
+
+.crow-callout-warning {
+  border-left-color: #D97706;
+  background-color: #FFFBEB;
+}
+.crow-callout-warning .crow-callout-title {
+  color: #B45309;
+}
+
+.crow-callout-caution {
+  border-left-color: #DC2626;
+  background-color: #FEF2F2;
+}
+.crow-callout-caution .crow-callout-title {
+  color: #B91C1C;
+}
+
+[data-paper-theme="obsidian"] .crow-callout {
+  background-color: #1A1C20;
+  border-color: #2D3139;
+  border-left-width: 6px;
+}
+
+/* ==============================================================================
+   MERMAID DIAGRAM BLOCK (ARCHITECTURAL WHITEBOARD)
+   ============================================================================== */
+.crow-mermaid-block {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-crow-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+}
+
+.crow-mermaid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-crow-border);
+}
+
+.crow-mermaid-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-vol-1-cobalt);
+  background-color: rgba(29, 78, 216, 0.08);
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(29, 78, 216, 0.2);
+}
+
+.crow-mermaid-block pre.mermaid {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+[data-paper-theme="sepia"] .crow-mermaid-block {
+  background-color: #FAF4E6;
+  border-color: #E2D9C3;
+}
+
+[data-paper-theme="obsidian"] .crow-mermaid-block {
+  background-color: #16181D;
+  border-color: #2D3139;
+}
+
+/* ==============================================================================
+   SCRIPT DRAWER (<details>) & PERSONALIZER TOKEN
+   ============================================================================== */
+details.crow-script-drawer {
+  margin: 1.75rem 0;
+  padding: 1.25rem 1.5rem;
+  background-color: #FAF8F5;
+  border: 1px solid var(--color-crow-border);
+  border-left: 5px solid var(--color-crow-gold);
+  border-radius: 0.875rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+details.crow-script-drawer summary {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  color: var(--color-crow-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+details.crow-script-drawer summary:focus-visible {
+  outline: 2px solid var(--color-vol-1-cobalt);
+  outline-offset: 2px;
+}
+
+details.crow-script-drawer pre {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-crow-border);
+  border-radius: 0.625rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #18181B;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+[data-paper-theme="obsidian"] details.crow-script-drawer {
+  background-color: #1A1C20;
+  border-color: #2D3139;
+  border-left-color: var(--color-crow-gold);
+}
+
+[data-paper-theme="obsidian"] details.crow-script-drawer pre {
+  background-color: #121316;
+  border-color: #2D3139;
+  color: #F4F4F5;
+}
+
+.teammate-token {
+  display: inline-block;
+  padding: 0 0.35rem;
+  border-radius: 0.375rem;
+  background-color: var(--color-crow-gold);
+  color: #111113;
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+/* ==============================================================================
+   FOOTNOTES SECTION
+   ============================================================================== */
+/* ==============================================================================
+   COLLAPSIBLE FOOTNOTES DRAWER (<details class="crow-footnotes-drawer">)
+   ============================================================================== */
+details.crow-footnotes-drawer {
+  margin-top: 3.5rem;
+  border: 1px solid var(--color-crow-border);
+  border-radius: 0.875rem;
+  background-color: #FAF8F5;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+details.crow-footnotes-drawer summary.crow-footnotes-summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FAF8F5;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-crow-ink);
+  outline: none;
+  user-select: none;
+}
+
+details.crow-footnotes-drawer summary.crow-footnotes-summary:focus-visible {
+  outline: 2px solid var(--color-vol-1-cobalt);
+  outline-offset: -2px;
+}
+
+details.crow-footnotes-drawer .crow-footnotes-title {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+details.crow-footnotes-drawer .crow-footnotes-hint {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #71717A;
+  font-family: var(--font-sans);
+}
+
+details.crow-footnotes-drawer[open] summary.crow-footnotes-summary {
+  border-bottom: 1px solid var(--color-crow-border);
+}
+
+details.crow-footnotes-drawer .footnotes {
+  margin-top: 0;
+  padding: 1.25rem 1.5rem;
+  border-top: none;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: #52525B;
+  background-color: #FFFFFF;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+details.crow-footnotes-drawer .footnotes ol {
+  margin: 0 !important;
+  padding-left: 1.25rem !important;
+}
+
+details.crow-footnotes-drawer .footnotes li {
+  margin: 0.75rem 0 !important;
+}
+
+details.crow-footnotes-drawer .footnotes a {
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+details.crow-footnotes-drawer .footnotes hr {
+  display: none;
+}
+
+/* Sepia Footnotes */
+[data-paper-theme="sepia"] details.crow-footnotes-drawer {
+  background-color: #EFE4CC;
+  border-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] details.crow-footnotes-drawer summary.crow-footnotes-summary {
+  background-color: #EFE4CC;
+  color: #1C1917;
+}
+[data-paper-theme="sepia"] details.crow-footnotes-drawer[open] summary.crow-footnotes-summary {
+  border-bottom-color: #E2D9C3;
+}
+[data-paper-theme="sepia"] details.crow-footnotes-drawer .footnotes {
+  background-color: #FAF4E6;
+  color: #292524;
+}
+
+/* Obsidian Footnotes */
+[data-paper-theme="obsidian"] details.crow-footnotes-drawer {
+  background-color: #1F2228;
+  border-color: #2D3139;
+}
+[data-paper-theme="obsidian"] details.crow-footnotes-drawer summary.crow-footnotes-summary {
+  background-color: #1F2228;
+  color: #F4F4F5;
+}
+[data-paper-theme="obsidian"] details.crow-footnotes-drawer[open] summary.crow-footnotes-summary {
+  border-bottom-color: #2D3139;
+}
+[data-paper-theme="obsidian"] details.crow-footnotes-drawer .footnotes {
+  background-color: #16181D;
+  color: #A1A1AA;
+}
+
+article a.footnote-ref {
+  display: inline-block;
+  padding: 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-vol-1-cobalt);
+  text-decoration: none;
+  background-color: rgba(29, 78, 216, 0.08);
+  border-radius: 0.25rem;
+  margin: 0 0.15rem;
+  vertical-align: super;
+}
+
+article a.footnote-backref {
+  font-family: var(--font-mono);
+  color: var(--color-vol-1-cobalt);
+  text-decoration: none;
+  margin-left: 0.35rem;
+  font-weight: 800;
+}
+
+/* ==============================================================================
+   HERO ANIMATED TYPOGRAPHY (STABILO HIGHLIGHTER & HAND-DRAWN SCRIBBLE)
+   ============================================================================== */
+.crow-hero-mark {
+  color: #111113;
+  padding: 0.08em 0.22em;
+  border-radius: 0.28em;
+  display: inline-block;
+  position: relative;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(120deg, rgba(255, 230, 109, 0.85) 0%, #FFE66D 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: crow-highlight-sweep 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes crow-highlight-sweep {
+  0% {
+    background-size: 0% 100%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+.crow-scribble-container {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.crow-scribble-svg {
+  position: absolute;
+  left: -3%;
+  bottom: -0.22em;
+  width: 106%;
+  height: 0.42em;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.crow-scribble-path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: crow-draw-scribble 1.1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+@keyframes crow-draw-scribble {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
