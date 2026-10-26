@@ -10,6 +10,7 @@
 | `npm run typecheck` | TypeScript tanpa emit; dapat membuat metadata incremental. |
 | `npm test` | Unit dan integration test yang diimpor `tests/run.ts`. |
 | `npm run test:browser` | Dua suite Playwright Chromium secara berurutan. |
+| `npm run test:login` | `login()` melalui Auth.js asli dalam request context Next.js; repository di-mock, memeriksa satu charge per budget dan cookie sesi. Terpisah agar environment auth tidak bocor ke unit suite. |
 | `npm run test:editor` | Rerender komponen editor asli di Chromium, tanpa server/DB; memerlukan browser Playwright terpasang. |
 | `npm run test:reader` | Checklist pada komponen reader asli di Chromium (komponen sekeliling dan fetch di-stub): label duplikat, reorder, keyboard toggle, pending, rollback, dan empty state; tanpa server/DB. |
 | `npm run db:check` | Konsistensi berkas migrasi Drizzle; bukan pembandingan schema live dengan seluruh SQL. |
@@ -35,6 +36,8 @@ TEST_DATABASE_URL="$CROW_TEST_DATABASE_URL" npm test
 ```
 
 Test `tests/checklist-migration.test.ts` dapat dijalankan sendiri pada database `_test` tanpa seed/vector: `TEST_DATABASE_URL="$CROW_TEST_DATABASE_URL" node --import tsx tests/checklist-migration.test.ts`. Test memakai tabel TEMP dengan bentuk schema lama, mengeksekusi SQL migration asli dalam transaksi, lalu memeriksa pemetaan lintas bahasa, UTF-8, deduplikasi, dan posisi yatim. Test ini dilewati bila URL tidak tersedia; pemeriksaan statis/`db:check` bukan bukti SQL berjalan benar.
+
+`tests/rate-limit-database.test.ts` dijalankan terpisah dengan `TEST_DATABASE_URL` dan `DATABASE_URL` menuju database lokal `crow_checklist_batch2_test` yang telah disetujui untuk fixture. Tidak memerlukan seed/vector; test membuat schema unik, menguji repository SQL asli (konkurensi 10/100, expiry, cleanup 100 baris, locked-refresh, dan DB failure), lalu menghapus schema miliknya dalam `finally`. Jangan menjalankan seluruh seeded suite pada database kosong ini.
 
 Integration suite membutuhkan buku/bab fixture dari seed, termasuk `book-1/ch-7`. Suite memeriksa transaksi pembayaran, callback paralel/replay, snapshot, revoke, paid content, rate limit, locale/default, serta invoice failure menggunakan fetch stub. Suite juga mengubah status terjemahan dan metadata locale fixture; jangan memakai data editorial nyata sebagai fixture.
 
@@ -94,7 +97,7 @@ npm run test:browser
 
 Suite penuh memerlukan development/mock mode. Suite tersebut membuat guest/order, menandai pembayaran simulasi, menyimpan checklist, dan mengubah fixture dictionary/locale. Suite i18n mengembalikan nilai terjemahan utama setelah selesai dan menonaktifkan locale fixture; ini tetap bukan suite read-only.
 
-Repeated login dapat mencapai batas 10 percobaan/email/15 menit. Gunakan database test bersih atau tunggu window sesuai kebutuhan; jangan menonaktifkan limiter aplikasi hanya untuk menjalankan suite.
+Repeated login dapat mencapai batas 10 percobaan/IP+email atau 100/IP per 15 menit (termasuk login berhasil). Development lokal berbagi identitas `local-development`. Gunakan database test bersih atau tunggu window sesuai kebutuhan; jangan menonaktifkan limiter aplikasi hanya untuk menjalankan suite.
 
 ## Praktik perubahan
 

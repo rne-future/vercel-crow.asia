@@ -32,7 +32,7 @@ export const requestRateLimits = pgTable("request_rate_limits", {
   key: varchar("key", { length: 128 }).primaryKey(),
   attempts: integer("attempts").notNull(),
   resetsAt: timestamp("resets_at", tz).notNull(),
-});
+}, (t) => [index("idx_request_rate_limits_resets_at").on(t.resetsAt)]);
 
 export const supportedLocales = pgTable("supported_locales", {
   code: varchar("code", { length: 16 }).primaryKey(),

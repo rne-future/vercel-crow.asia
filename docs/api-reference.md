@@ -27,7 +27,10 @@ Error yang ditangani route berbentuk `{"error":"pesan"}`. Exception lain diterus
 | 400 | Form atau nilai credential tidak valid. |
 | 401 | Credential ditolak Auth.js. |
 | 403 | Origin tidak sesuai. |
-| 429 | Lebih dari 10 percobaan per email dalam window 15 menit. |
+| 429 | Batas 10 percobaan/IP+email atau 100 percobaan/IP dalam 15 menit terlampaui. Login berhasil juga dihitung. |
+| 503 | Sumber IP tidak tersedia/valid pada Vercel, atau production memakai ingress yang tidak didukung. |
+
+Callback Credentials Auth.js langsung memakai envelope/redirect bawaan Auth.js dengan kode aman `rate_limited` atau `login_unavailable`, bukan jaminan HTTP 429/503. Kegagalan tidak menerbitkan sesi. Lihat [trust ingress dan batas operasional](configuration.md#sumber-ip-dan-budget-login).
 
 Rujukan: [route login](../app/api/auth/login/route.ts), [schema auth](../lib/modules/auth/auth.schema.ts), dan [rate limit](../lib/modules/auth/auth.repository.ts).
 

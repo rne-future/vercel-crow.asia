@@ -21,9 +21,15 @@ export const authRepository = {
   async updateRole(email: string, role: string) {
     await db.update(users).set({ role, updatedAt: new Date() }).where(eq(users.email, email));
   },
-  async allowAttempt(scope: "login" | "checkout", identifier: string, limit: number, minutes: number) {
+  async allowAttempt(scope: "login-ip" | "login-pair" | "checkout", identifier: string, limit: number, minutes: number, connection: Connection = db) {
+    await connection.execute(sql`
+      DELETE FROM request_rate_limits WHERE key IN (
+        SELECT key FROM request_rate_limits WHERE resets_at <= NOW()
+        ORDER BY resets_at, key LIMIT 100 FOR UPDATE SKIP LOCKED
+      )
+    `);
     const key = `${scope}:${createHash("sha256").update(identifier.trim().toLowerCase()).digest("hex")}`;
-    const [row] = await db.execute<{ attempts: number }>(sql`
+    const [row] = await connection.execute<{ attempts: number }>(sql`
       INSERT INTO request_rate_limits (key, attempts, resets_at)
       VALUES (${key}, 1, NOW() + ${minutes} * INTERVAL '1 minute')
       ON CONFLICT (key) DO UPDATE SET

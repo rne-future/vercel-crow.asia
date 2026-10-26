@@ -15,6 +15,7 @@
     "lint": "eslint . --max-warnings=0",
     "test": "node --import tsx tests/run.ts",
     "test:browser": "node tests/browser-flow.cjs && node tests/browser-i18n.cjs",
+    "test:login": "node --import tsx tests/login-action.cjs",
     "test:editor": "node --test tests/editor-refresh.cjs",
     "test:reader": "node --test tests/reader-checklist.cjs",
     "typecheck": "tsc --noEmit",

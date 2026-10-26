@@ -51,7 +51,7 @@ test("payments are atomic, concurrent callbacks are idempotent, and reader acces
     await markOrderPaid(id);
     assert.equal((await db.select().from(userEntitlements).where(eq(userEntitlements.userId, userId)))[0].isActive, false);
     const { authService } = await import("../lib/modules/auth/auth.service");
-    const attempts = await Promise.all(Array.from({ length: 11 }, () => authService.allowLoginAttempt(`${id}@example.test`)));
+    const attempts = await Promise.all(Array.from({ length: 11 }, () => authService.allowLoginAttempt(`${id}@example.test`, `test-source-${id}`)));
     assert.equal(attempts.filter(Boolean).length, 10);
     const checkoutAttempts = await Promise.all(Array.from({ length: 11 }, () => authService.allowCheckoutAttempt(`${id}@example.test`)));
     assert.equal(checkoutAttempts.filter(Boolean).length, 10);

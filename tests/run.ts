@@ -7,4 +7,8 @@ import "./seed-users.test";
 import "./editor-conflict.test";
 import "./checklist-identity.test";
 import "./checklist-migration.test";
+import "./login-source.test";
+import "./login-limiter.test";
+import "./auth-credentials.test";
+import "./login-route.test";
 import "./database.test";

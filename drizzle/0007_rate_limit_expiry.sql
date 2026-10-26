@@ -1,0 +1,1 @@
+CREATE INDEX "idx_request_rate_limits_resets_at" ON "request_rate_limits" USING btree ("resets_at");

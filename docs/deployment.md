@@ -75,6 +75,8 @@ Contoh tersebut memakai database dan konfigurasi vendor yang sudah ada pada envi
 
 ## Pemeriksaan setelah deploy
 
+- Ingress login harus langsung ke Vercel dengan Cloudflare DNS only. Sebelum production, uji pada preview Vercel bahwa `x-vercel-forwarded-for` berisi satu IP, header palsu dari client ditimpa, dan percobaan mengganti `x-forwarded-for`/`cf-connecting-ip` tidak mengubah allowance. Pemeriksaan lokal tidak membuktikan perilaku edge tersebut.
+- Jalankan migration `0007_rate_limit_expiry.sql` sebelum cutover limiter untuk menyediakan indeks cleanup. Periksa [batas login dan retensi](configuration.md#sumber-ip-dan-budget-login); jangan mengubah ke proxy Cloudflare tanpa evaluasi trust baru.
 - Landing, login, dan bab contoh merespons sesuai data konten yang dipublikasikan.
 - User yang tidak login diarahkan dari dashboard/admin ke login; PDF merespons 401.
 - User yang login tanpa hak buku menerima 403 untuk PDF dan tidak menerima paid snippet/checklist/scene penuh.

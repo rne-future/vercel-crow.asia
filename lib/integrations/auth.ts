@@ -4,6 +4,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { db } from "@/lib/db";
 import { accounts, authSessions, users, verificationTokens } from "@/lib/db/schema";
 import { authService } from "@/lib/modules/auth/auth.service";
+import { authorizeCredentials } from "./auth-credentials";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db, {
@@ -20,9 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      authorize: async (raw) => {
-        return authService.verifyCredentials({ email: raw.email, password: raw.password });
-      },
+      authorize: authorizeCredentials,
     }),
   ],
   callbacks: {

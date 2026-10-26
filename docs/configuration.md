@@ -44,6 +44,16 @@ node -e "console.log(require('node:crypto').randomBytes(48).toString('base64url'
 
 Login saat ini menggunakan Credentials provider. Variabel Google OAuth belum dikonsumsi oleh konfigurasi auth; rencana penambahannya ada di [rekomendasi](recommendations.md#login-google-dan-penautan-akun).
 
+### Sumber IP dan budget login
+
+Topology yang didukung: registrar Rumahweb, Cloudflare **DNS only**, lalu ingress langsung Vercel. Server dengan `VERCEL=1` hanya membaca satu IP valid dari `x-vercel-forwarded-for` yang dikelola Vercel; header alternatif dan rantai IP ditolak. IPv6 dinormalisasi sebelum menjadi identitas budget. Jangan menyetel `VERCEL=1` pada server yang bisa diakses langsung oleh client. Rujukan: [header request Vercel](https://vercel.com/docs/headers/request-headers).
+
+Di luar Vercel, development/test memakai identitas bersama `local-development` dan mengabaikan header IP. Production non-Vercel, atau sumber hilang/tidak valid pada Vercel, menolak login (503 pada route login). Cloudflare proxied atau self-hosting memerlukan keputusan trust ingress baru, bukan sekadar mengganti header.
+
+Semua jalur Credentials berbagi batas 100 percobaan/IP dan 10 percobaan/IP+email per 15 menit, termasuk login berhasil. IP diperiksa lebih dahulu sebelum lookup/bcrypt; pengguna satu NAT berbagi batas 100 tersebut. Checkout tetap 10/email/15 menit. Kunci limiter berupa scope dan SHA-256, bukan IP/email mentah; hashing bukan jaminan anonimitas terhadap enumerasi IP.
+
+Setiap pemeriksaan budget menghapus maksimal 100 baris kedaluwarsa, melewati baris terkunci, dengan indeks expiry dari migration `0007`. Kegagalan DB menolak proses, bukan melewati limiter. Ini bukan batas storage absolut: backlog bisa bertambah dan saat tidak ada trafik cleanup berhenti. Budget login email-only lama tidak dipakai lagi, sehingga cutover mereset allowance login sekali; baris lama ikut cleanup setelah kedaluwarsa. Rotasi IP/botnet tidak ditangani oleh limiter ini.
+
 ## Mayar
 
 | Variabel | Fungsi / default |
