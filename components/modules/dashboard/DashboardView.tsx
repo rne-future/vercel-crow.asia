@@ -63,6 +63,16 @@ export function DashboardView({
                     </div>
 
                     <div className="flex items-center gap-2">
+                        {(user?.role === 'admin' || user?.role === 'editor') && (
+                            <Link
+                                href="/admin"
+                                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-purple-200 bg-purple-50 text-xs font-bold text-purple-900 hover:bg-purple-100 transition-colors"
+                            >
+                                <ShieldCheck className="w-3.5 h-3.5 text-purple-700" />
+                                <span>Admin Panel</span>
+                            </Link>
+                        )}
+
                         <Link href="/#harga"
                             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[#E5E0D5] bg-[#FAF8F5] text-xs font-bold text-stone-800 hover:bg-stone-100 transition-colors"
                         >

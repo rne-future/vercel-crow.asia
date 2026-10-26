@@ -112,14 +112,25 @@ export function TopNavbarFullWidth({
         )}
         <GlobalLocaleMenu currentLocale={currentLocale} supportedLocales={supportedLocales} onLocaleChange={onLocaleChange} />
         {user ? (
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-[#111113] text-[#FAF8F5] hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-[#1D4ED8] transition-colors min-h-[38px]"
-            title={`${t("nav.dashboard")} (${user.email})`}
-          >
-            <UserIcon className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">{t("nav.dashboard")}</span>
-          </Link>
+          <div className="flex items-center gap-1.5">
+            {(user.role === "admin" || user.role === "editor") && (
+              <Link
+                href="/admin"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-purple-200 bg-purple-50 text-purple-900 hover:bg-purple-100 transition-colors min-h-[38px]"
+                title="Admin Panel"
+              >
+                <span>Admin</span>
+              </Link>
+            )}
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-[#111113] text-[#FAF8F5] hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-[#1D4ED8] transition-colors min-h-[38px]"
+              title={`${t("nav.dashboard")} (${user.email})`}
+            >
+              <UserIcon className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">{t("nav.dashboard")}</span>
+            </Link>
+          </div>
         ) : (
           <Link
             href="/login"
